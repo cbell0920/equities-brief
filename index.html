@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Equities Morning Brief — 2026-06-26 — TPTraders</title>
+<title>Equities Morning Brief — 2026-07-01 — TPTraders</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0a0e1a;color:#e2e8f0;font-family:'Inter',system-ui,sans-serif;padding:20px;line-height:1.6}
@@ -29,9 +29,9 @@ tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
 .bull{color:#22c55e;font-weight:700}.bear{color:#ef4444;font-weight:700}.neu{color:#f59e0b;font-weight:700}
 .price{font-family:'Courier New',monospace;color:#e2e8f0;font-size:12px}
 .level{font-family:'Courier New',monospace;color:#f59e0b;font-size:11px}
-.driver{color:#64748b;font-size:11px}
+.driver{color:#64748b;font-size:11px;line-height:1.5}
 .conv-wrap{display:flex;align-items:center;gap:6px}
-.conv-bar{height:4px;border-radius:2px;background:#1e2d4a;width:60px;position:relative}
+.conv-bar{height:4px;border-radius:2px;background:#1e2d4a;width:50px;position:relative}
 .conv-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0}
 .conv-score{font-family:'Courier New',monospace;font-size:10px}
 .cal-list{display:flex;flex-direction:column;gap:8px}
@@ -51,205 +51,283 @@ tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
 .badge-bull{background:#0a2d0a;color:#22c55e;border:1px solid #22c55e33}
 .badge-bear{background:#2d0a0a;color:#ef4444;border:1px solid #ef444433}
 .badge-neu{background:#2d2000;color:#f59e0b;border:1px solid #f59e0b33}
-.badge-watch{background:#1a1a2d;color:#a78bfa;border:1px solid #a78bfa33}
-.tier-label{font-size:9px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.1em;padding:12px 0 6px;margin-top:4px}
-.journal-btn{display:inline-flex;align-items:center;gap:6px;background:#22c55e18;border:1px solid #22c55e44;color:#22c55e;font-size:10px;font-weight:600;padding:4px 10px;border-radius:4px;cursor:pointer;text-decoration:none;white-space:nowrap;font-family:'Courier New',monospace}
-.journal-btn:hover{background:#22c55e28;text-decoration:none}
+.journal-btn{display:inline-flex;align-items:center;gap:4px;background:#22c55e14;border:1px solid #22c55e44;color:#22c55e;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;cursor:pointer;text-decoration:none;white-space:nowrap;font-family:'Courier New',monospace}
+.journal-btn:hover{background:#22c55e24;text-decoration:none}
+.news-item{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px 14px;margin-bottom:8px}
+.news-ticker{font-family:'Courier New',monospace;font-size:11px;font-weight:700;color:#22c55e;margin-bottom:4px}
+.news-headline{font-size:12px;color:#e2e8f0;font-weight:500;margin-bottom:3px}
+.news-sub{font-size:11px;color:#64748b}
+.news-bull{border-left:3px solid #22c55e}
+.news-bear{border-left:3px solid #ef4444}
+.news-neu{border-left:3px solid #f59e0b}
 .footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
 .tabs{display:flex;gap:0;border-bottom:1px solid #1e2d4a;margin-bottom:16px;overflow-x:auto}
 .tab{padding:8px 16px;font-size:11px;font-weight:600;color:#475569;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;user-select:none}
 .tab:hover{color:#94a3b8}.tab.active{color:#22c55e;border-bottom-color:#22c55e}
 .tab-panel{display:none}.tab-panel.active{display:block}
-@media(max-width:600px){body{padding:12px}.hdr{flex-direction:column;align-items:flex-start}.regime-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){body{padding:12px}.hdr{flex-direction:column}.regime-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <div class="hdr">
   <div>
-    <div class="title">EQUITIES/BRIEF 2026-06-26 — TPTraders</div>
-    <div class="sub">Generated Fri, 26 Jun 2026 | Pre-market | PCE 4.1% in line · Equities bounced Thu · UMich sentiment today</div>
+    <div class="title">EQUITIES/BRIEF 2026-07-01 — TPTraders</div>
+    <div class="sub">Generated Wed, 01 Jul 2026 | Pre-market | H2 opens · Iran rejected Doha · ADP + ISM + Warsh today · NFP tomorrow</div>
   </div>
   <a class="hub-link" href="https://cbell0920.github.io/tptraders-hub">← Hub</a>
 </div>
 <div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only.</div>
 
 <div class="tabs">
-  <div class="tab active" onclick="switchTab('tickers')">Tickers</div>
-  <div class="tab" onclick="switchTab('screening')">Screening</div>
+  <div class="tab active" onclick="switchTab('overview')">Overview</div>
+  <div class="tab" onclick="switchTab('watchlist')">Watchlist</div>
   <div class="tab" onclick="switchTab('macro')">Macro Context</div>
-  <div class="tab" onclick="switchTab('calendar')">Calendar</div>
+  <div class="tab" onclick="switchTab('news')">News</div>
   <div class="tab" onclick="switchTab('analyst')">Analyst Note</div>
 </div>
 
-<!-- TICKERS -->
-<div class="tab-panel active" id="tab-tickers">
+<!-- OVERVIEW -->
+<div class="tab-panel active" id="tab-overview">
   <div class="section">
     <div class="section-title">Market Regime</div>
     <div class="regime-grid">
-      <div class="regime-card"><div class="rc-label">Regime</div><div class="rc-value" style="color:#22c55e">RISK-ON LEAN</div><div class="rc-sub">PCE in-line · equities bounced · AI trade intact</div></div>
-      <div class="regime-card"><div class="rc-label">S&P 500 (Thu close)</div><div class="rc-value" style="color:#22c55e">+0.26%</div><div class="rc-sub">7,377 · recovered from early losses</div></div>
-      <div class="regime-card"><div class="rc-label">Nasdaq (Thu close)</div><div class="rc-value" style="color:#22c55e">+0.49%</div><div class="rc-sub">MU-led semi bounce held</div></div>
-      <div class="regime-card"><div class="rc-label">VIX</div><div class="rc-value" style="color:#22c55e">18.63</div><div class="rc-sub">Prev close · below 20 = normal · Friday may drift lower</div></div>
+      <div class="regime-card"><div class="rc-label">Regime</div><div class="rc-value" style="color:#f59e0b">CAUTIOUS</div><div class="rc-sub">Iran rejected Doha · H2 opens with pullback · data-heavy day</div></div>
+      <div class="regime-card"><div class="rc-label">SPY</div><div class="rc-value" style="color:#ef4444">$741 → ↓</div><div class="rc-sub">Futures -0.3% · Iran reversal · ADP + ISM today</div></div>
+      <div class="regime-card"><div class="rc-label">QQQ</div><div class="rc-value" style="color:#ef4444">Futures -0.5%</div><div class="rc-sub">Tech under pressure · NQ futures down</div></div>
+      <div class="regime-card"><div class="rc-label">VIX</div><div class="rc-value" style="color:#f59e0b">~18.00</div><div class="rc-sub">Rising from 17.53 · Iran risk · data uncertainty</div></div>
     </div>
   </div>
-
-  <!-- ANCHORS -->
-  <div class="tier-label">▸ Anchors — Market Direction Indicators</div>
-  <table>
-    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Key Level</th><th>Signal</th><th>Conviction</th><th>Notes</th><th></th></tr></thead>
-    <tbody>
-      <tr>
-        <td class="ticker">SPY</td><td class="price">~$742</td><td><span class="bull">BULLISH LEAN</span></td><td class="level">$735 support</td>
-        <td style="font-size:11px;color:#22c55e">PCE relief</td>
-        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:62%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">62</span></div></td>
-        <td class="driver">S&P closed +0.26% Thursday. PCE monthly softness (+0.4% vs +0.5% expected) gave market room to breathe. Friday = end-of-week positioning. ATH at ~$752 is resistance.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22SPY%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22742%22%2C%22stop%22%3A%22735%22%2C%22t1%22%3A%22752%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22vix%22%3A18.63%2C%22catalyst%22%3A%22PCE+in-line+%E2%80%94+market+bounced+Thursday%22%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">QQQ</td><td class="price">~$721</td><td><span class="bull">BULLISH</span></td><td class="level">$700 support</td>
-        <td style="font-size:11px;color:#22c55e">Semis leading</td>
-        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:70%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">70</span></div></td>
-        <td class="driver">Nasdaq +0.49% Thursday. MU +17% gap held. Semi sector leading. Watch $748 ATH resistance.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22QQQ%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22721%22%2C%22stop%22%3A%22700%22%2C%22t1%22%3A%22748%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22vix%22%3A18.63%2C%22catalyst%22%3A%22Micron+AI+earnings+validate+semi+sector%22%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">VIX</td><td class="price">18.63</td><td><span class="bull">EASING</span></td><td class="level">20 = caution</td>
-        <td style="font-size:11px;color:#22c55e">Below 20</td>
-        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:65%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">65</span></div></td>
-        <td class="driver">VIX settled at 18.63. Below 20 = options premiums normalising. Friday tends to see VIX drift lower as traders close weekend hedges.</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- BELLWETHERS -->
-  <div class="tier-label">▸ Bellwethers — Educational Reference (always present)</div>
-  <table>
-    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Conditions</th><th>Notes</th><th></th></tr></thead>
-    <tbody>
-      <tr>
-        <td class="ticker">AAPL</td><td class="price">~$215</td><td><span class="neu">NEUTRAL</span></td>
-        <td style="font-size:11px;color:#64748b">☁ Unfavorable: rates headwind · software/hardware rotation out · no catalyst</td>
-        <td class="driver">Unchanged setup from yesterday. No catalyst. Watching for any reaction to UMich sentiment data today.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22AAPL%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">NVDA</td><td class="price">~$148</td><td><span class="bull">BULLISH</span></td>
-        <td style="font-size:11px;color:#22c55e">✓ Favorable: Micron validated AI memory cycle · data center demand structural · TSMC raised 2026 forecast</td>
-        <td class="driver">TSMC raised 2026 revenue forecast Thursday — directly validates NVDA's AI GPU demand thesis. Strong follow-through setup.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22NVDA%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22vix%22%3A18.63%2C%22catalyst%22%3A%22TSMC+raised+2026+forecast+%E2%80%94+AI+GPU+demand+confirmed%22%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">MSFT</td><td class="price">~$467</td><td><span class="neu">NEUTRAL</span></td>
-        <td style="font-size:11px;color:#64748b">☁ Unfavorable: rates headwind · software out of rotation · semis taking leadership</td>
-        <td class="driver">Consolidating. Money rotating into semis away from software. No near-term catalyst.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22MSFT%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">GOOGL</td><td class="price">~$200</td><td><span class="neu">NEUTRAL</span></td>
-        <td style="font-size:11px;color:#64748b">☁ Unfavorable: ad spend sensitivity · rates headwind · software rotation out</td>
-        <td class="driver">No catalyst. Watching AI capex narrative. QCOM's data center announcement is indirect competition signal.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GOOGL%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- DYNAMIC PICKS -->
-  <div class="tier-label">▸ Dynamic Picks — Today's AI-Screened Setups</div>
-  <table>
-    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Stop</th><th>T1</th><th>Type</th><th>Conviction</th><th>Catalyst</th><th></th></tr></thead>
-    <tbody>
-      <tr>
-        <td class="ticker">MU</td><td class="price">~$1,100</td><td><span class="bull">BULLISH</span></td>
-        <td class="level">$1,020</td><td class="level">$1,200</td>
-        <td><span class="badge badge-bull">LONG CALLS</span></td>
-        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:85%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">85</span></div></td>
-        <td class="driver">Gap held Thursday — stock up ~17% from pre-earnings. TSMC's raised forecast is a secondary confirmation. Momentum intact. Watch $1,020 as key gap support.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22MU%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%221100%22%2C%22stop%22%3A%221020%22%2C%22t1%22%3A%221200%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22Earnings+gap+held+%E2%80%94+TSMC+raised+forecast+confirms+AI+demand%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22conviction%22%3A85%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">SNDK</td><td class="price">~$2,151</td><td><span class="bull">BULLISH</span></td>
-        <td class="level">$2,000</td><td class="level">$2,350</td>
-        <td><span class="badge badge-bull">LONG CALLS</span></td>
-        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:78%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">78</span></div></td>
-        <td class="driver">S&P 500's best-performing stock in 2026. Micron's results reinforce AI memory shortage — SNDK benefits from same NAND demand tailwind. Strong Q4 outlook.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22SNDK%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%222151%22%2C%22stop%22%3A%222000%22%2C%22t1%22%3A%222350%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22AI+NAND+memory+shortage+%E2%80%94+best+S%26P500+performer+2026%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22conviction%22%3A78%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">QCOM</td><td class="price">~$198</td><td><span class="bull">BULLISH</span></td>
-        <td class="level">$182</td><td class="level">$220</td>
-        <td><span class="badge badge-bull">LONG CALLS</span></td>
-        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:74%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">74</span></div></td>
-        <td class="driver">Data center chip/server expansion announced. Meta and Microsoft backing per reports. QCOM moving beyond smartphones — AI infrastructure play at a discount to NVDA.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22QCOM%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22198%22%2C%22stop%22%3A%22182%22%2C%22t1%22%3A%22220%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22Meta+%26+MSFT+backing+data+center+chip+expansion%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22conviction%22%3A74%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">GLD</td><td class="price">$367</td><td><span class="bear">BEARISH</span></td>
-        <td class="level">$376</td><td class="level">$352</td>
-        <td><span class="badge badge-bear">LONG PUTS</span></td>
-        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:70%;background:#ef4444"></div></div><span class="conv-score" style="color:#ef4444">70</span></div></td>
-        <td class="driver">Gold below $4,000. PCE 4.1% confirms hawkish Fed = rising real rates = gold headwind. Bearish trendline intact since March. DXY at 101.3 adding pressure. Buy puts on bounces toward $370–372.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GLD%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22key_level%22%3A%22367%22%2C%22stop%22%3A%22376%22%2C%22t1%22%3A%22352%22%2C%22call_put%22%3A%22Put%22%2C%22catalyst%22%3A%22Gold+below+%244%2C000+%E2%80%94+PCE+4.1%25+%E2%80%94+hawkish+Fed+%E2%80%94+DXY+101.3%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22conviction%22%3A70%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
-      </tr>
-      <tr>
-        <td class="ticker">ONDS</td><td class="price">~$3.50</td><td><span class="neu">WATCH</span></td>
-        <td class="level">$3.10</td><td class="level">$4.20</td>
-        <td><span class="badge badge-watch">SPECULATIVE</span></td>
-        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:42%;background:#a78bfa"></div></div><span class="conv-score" style="color:#a78bfa">42</span></div></td>
-        <td class="driver">Small-cap speculative position. Risk-on environment improves small-cap sentiment. No specific catalyst today. Watch volume for signal. Size appropriately.</td>
-        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22ONDS%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%223.50%22%2C%22stop%22%3A%223.10%22%2C%22t1%22%3A%224.20%22%2C%22catalyst%22%3A%22Small-cap+speculative+%E2%80%94+risk-on+env+improves+sentiment%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22conviction%22%3A42%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="section">
+    <div class="section-title">Anchors</div>
+    <table>
+      <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Support</th><th>Resistance</th><th>Signal</th><th>Conviction</th><th>Notes</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="ticker">SPY</td><td class="price">~$737</td><td><span class="neu">NEUTRAL</span></td>
+          <td class="level">$728</td><td class="level">$752</td>
+          <td style="font-size:11px;color:#f59e0b">Wait for data</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:50%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">50</span></div></td>
+          <td class="driver">Futures -0.3%. Iran rejection of Doha reverting H2 open risk. ADP and Warsh are the real catalysts today. S&P 500 just closed best quarter since 2020 (+14% Q2).</td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22SPY%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%22737%22%2C%22stop%22%3A%22728%22%2C%22t1%22%3A%22752%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%2C%22catalyst%22%3A%22ADP+%2B+Warsh+%2B+NFP+tomorrow+%E2%80%94+Iran+rejection+adds+risk-off%22%7D" target="_blank">→ Journal</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">QQQ</td><td class="price">Futures ↓</td><td><span class="bear">BEARISH LEAN</span></td>
+          <td class="level">$700</td><td class="level">$730</td>
+          <td style="font-size:11px;color:#ef4444">Tech pressure</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:45%;background:#ef4444"></div></div><span class="conv-score" style="color:#ef4444">45</span></div></td>
+          <td class="driver">Nasdaq futures -0.5%. MU fell 4% (Burry short). NKE fell 4%. Risk appetite softening. Q2 closed Nasdaq +20% — profit-taking entering H2 is natural.</td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22QQQ%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22key_level%22%3A%22700%22%2C%22stop%22%3A%22715%22%2C%22t1%22%3A%22688%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%2C%22catalyst%22%3A%22H2+profit+taking+%E2%80%94+Iran+reversal+%E2%80%94+MU+Burry+short%22%7D" target="_blank">→ Journal</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">VIX</td><td class="price">~18.00</td><td><span class="neu">RISING</span></td>
+          <td class="level">17.00</td><td class="level">20.00</td>
+          <td style="font-size:11px;color:#f59e0b">Watch 20 level</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:55%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">55</span></div></td>
+          <td class="driver">Rising from 17.53 on Iran rejection. ADP and Warsh could push it either direction. NFP tomorrow is the real VIX catalyst. Below 20 = manageable. Above 20 = caution.</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section">
+    <div class="section-title">Top Movers From Watchlist Today</div>
+    <div class="regime-grid">
+      <div class="regime-card" style="border-color:#22c55e33"><div class="rc-label">SPCX</div><div class="rc-value" style="color:#22c55e">$172.39</div><div class="rc-sub">+2% · Wedbush $190 target · Starlink hyperscaler thesis</div></div>
+      <div class="regime-card" style="border-color:#22c55e33"><div class="rc-label">MSFT</div><div class="rc-value" style="color:#22c55e">+1%</div><div class="rc-sub">2.5% workforce cuts to fund AI · cost discipline read positive</div></div>
+      <div class="regime-card" style="border-color:#ef4444"><div class="rc-label">MU</div><div class="rc-value" style="color:#ef4444">-4%</div><div class="rc-sub">Michael Burry revealed short position despite 400% H1 gain</div></div>
+      <div class="regime-card" style="border-color:#ef4444"><div class="rc-label">INTC</div><div class="rc-value" style="color:#22c55e">+6% Tue</div><div class="rc-sub">Strong Tuesday bounce from oversold · still structurally challenged</div></div>
+    </div>
+  </div>
 </div>
 
-<!-- SCREENING -->
-<div class="tab-panel" id="tab-screening">
+<!-- WATCHLIST -->
+<div class="tab-panel" id="tab-watchlist">
   <div class="section">
-    <div class="section-title">Screening Criteria & Today's Rationale</div>
-    <div class="macro-text">
-      <p><strong>Environment today:</strong> Risk-on lean. PCE came in slightly softer than feared on the monthly read (+0.4% vs +0.5% expected). Equities bounced Thursday. VIX at 18.63 below 20. Friday tends to have lower volume and end-of-week positioning flows — setups with clear catalysts hold better than momentum chases.</p>
-      <p><strong>MU</strong> — Gap-and-go setup with catalyst confirmed. TSMC raised 2026 revenue forecast Thursday, adding a second institutional validation. The stock needs to hold above $1,020 (gap support). If it does through the open, the setup is intact. If it fails $1,020 on heavy volume, exit.</p>
-      <p><strong>SNDK (SanDisk)</strong> — New pick today. S&P 500's best-performing stock in 2026. Micron's blowout results reinforce the same NAND memory shortage that benefits SanDisk's Q4 outlook. Riding the same AI infrastructure tailwind as MU but at a different price point. Worth having alongside MU for diversified semi exposure.</p>
-      <p><strong>QCOM</strong> — Meta and Microsoft backing the data center chip push per reports. This changes QCOM's story from a smartphone company to an AI infrastructure play. At ~$198, it's at a significant discount to NVDA on a price/performance basis. The risk is execution — moving into a new market is harder than dominating an existing one.</p>
-      <p><strong>GLD</strong> — Carry-over from yesterday. Gold below $4,000, PCE confirms hawkish Fed, DXY 101.3. The macro short thesis is intact. Friday may bring a minor bounce as USD longs are trimmed — that bounce is the put entry, not a reversal.</p>
-      <p><strong>Not selected today:</strong> AAPL, WMT, INTC, VZ, T — no fresh catalysts. INTC still under structural pressure. Dividend names (VZ, T) underperform in rising rate environments.</p>
-    </div>
+    <div class="section-title">Static Watchlist — 16 Tickers (All Prices Live)</div>
+    <table>
+      <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Support</th><th>Resistance</th><th>Key Catalyst</th><th>Conv</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="ticker">TSLA</td><td class="price">~$348</td><td><span class="neu">NEUTRAL</span></td><td class="level">$320</td><td class="level">$375</td>
+          <td class="driver">+8.45% Monday on Iran relief. H2 opens with caution. No earnings until late July. Robotaxi launch timeline key catalyst. Consolidating after Q2 volatility.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:52%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">52</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22TSLA%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%22348%22%2C%22stop%22%3A%22320%22%2C%22t1%22%3A%22375%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">MSFT</td><td class="price">~$468</td><td><span class="bull">BULLISH</span></td><td class="level">$450</td><td class="level">$495</td>
+          <td class="driver">+1% premarket on 2.5% workforce cuts across Xbox/consulting/sales divisions — cost discipline to fund AI capex. Market reading this as AI-focused efficiency, not weakness. Earnings July 28.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:68%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">68</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22MSFT%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22468%22%2C%22stop%22%3A%22450%22%2C%22t1%22%3A%22495%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%222.5%25+workforce+cuts+%E2%80%94+cost+discipline+for+AI+capex%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">NFLX</td><td class="price">$71.38</td><td><span class="neu">NEUTRAL</span></td><td class="level">$70.86</td><td class="level">$85</td>
+          <td class="driver">At 52-week low support zone ($70.86). Analysts say "take the plunge" — beaten down valuation at 25x earnings, lowest in 4 years. Earnings July 16. 37 analysts rate Buy, avg target $114. Warner Bros deal failed but core business growing 12-14% YoY.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:58%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">58</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22NFLX%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%2271.38%22%2C%22stop%22%3A%2268%22%2C%22t1%22%3A%2285%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22At+52W+low+support+%E2%80%94+earnings+Jul+16+%E2%80%94+analysts+buy+%24114+avg+target%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">RBLX</td><td class="price">verify</td><td><span class="neu">NEUTRAL</span></td><td class="level">verify</td><td class="level">verify</td>
+          <td class="driver">No live price confirmed this session. Gaming sector generally tracking with broader risk-off today. No major catalyst. Next earnings Q2 2026 — date TBD. Monitor for volume signals.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:40%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">40</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22RBLX%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">V</td><td class="price">~$358</td><td><span class="bull">BULLISH</span></td><td class="level">$342</td><td class="level">$375</td>
+          <td class="driver">Financials benefiting from rising rates (NIM positive read-through). Consumer spending resilient per JOLTS data. No earnings until late July. Technically constructive above $342 support.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:65%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">65</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22V%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22358%22%2C%22stop%22%3A%22342%22%2C%22t1%22%3A%22375%22%2C%22catalyst%22%3A%22Rate+hike+thesis+%E2%80%94+rising+rates+positive+for+financials%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">META</td><td class="price">~$725</td><td><span class="bull">BULLISH</span></td><td class="level">$690</td><td class="level">$765</td>
+          <td class="driver">+2.2% Monday on Iran relief. Q2 closed strongly. AI advertising monetization growing. No specific news today. Consolidating near highs. Earnings late July. Strong fundamental backdrop.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:70%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">70</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22META%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22725%22%2C%22stop%22%3A%22690%22%2C%22t1%22%3A%22765%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22AI+ad+monetization+%E2%80%94+Q2+closed+strongly%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">SPCX</td><td class="price">$172.39</td><td><span class="bull">BULLISH</span></td><td class="level">$160</td><td class="level">$190</td>
+          <td class="driver">+2.03% to $172.39 premarket. Wedbush initiated Outperform with $190 price target today — Dan Ives calls SpaceX "well-positioned to become a major hyperscaler." Joins Nasdaq-100 July 7. Market cap $2.25T.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:75%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">75</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22SPCX%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22172.39%22%2C%22stop%22%3A%22160%22%2C%22t1%22%3A%22190%22%2C%22catalyst%22%3A%22Wedbush+initiated+%24190+target+%E2%80%94+Nasdaq+100+inclusion+Jul+7%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A75%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">HOOD</td><td class="price">verify</td><td><span class="bull">BULLISH</span></td><td class="level">verify</td><td class="level">verify</td>
+          <td class="driver">No live price confirmed this session. Retail trading platform benefits from active market environment. JOLTS 2yr high and rate hike pricing increase retail trading activity. No specific news today.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:55%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">55</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22HOOD%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">BAC</td><td class="price">~$48</td><td><span class="bull">BULLISH</span></td><td class="level">$45</td><td class="level">$52</td>
+          <td class="driver">Financials rotating in on rising rate narrative. JOLTS 2yr high = labour market resilient = loan quality strong = bullish for banks. Fed stress tests passed. Sep hike 70% priced = NIM expansion. Earnings mid-July.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:70%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">70</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22BAC%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%2248%22%2C%22stop%22%3A%2245%22%2C%22t1%22%3A%2252%22%2C%22catalyst%22%3A%22Rising+rates+NIM+positive+%E2%80%94+JOLTS+2yr+high+%E2%80%94+stress+tests+passed%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A70%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">GOOG</td><td class="price">~$208</td><td><span class="bull">BULLISH</span></td><td class="level">$195</td><td class="level">$225</td>
+          <td class="driver">+4.96% Monday on Dow Jones inclusion replacing Verizon. Forced buying from Dow index trackers creates sustained structural demand. AI monetization growing. Earnings late July. Technically strong above $195.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:72%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">72</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GOOG%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22208%22%2C%22stop%22%3A%22195%22%2C%22t1%22%3A%22225%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22Dow+Jones+inclusion+%E2%80%94+forced+index+buying+%E2%80%94+AI+monetization%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A72%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">INTC</td><td class="price">~$28</td><td><span class="neu">NEUTRAL</span></td><td class="level">$25</td><td class="level">$33</td>
+          <td class="driver">+6% Tuesday on broad chip sector rebound. Trump announced Apple will make chips in US — Intel read-through positive. Still structurally challenged vs AMD/NVDA. Turnaround thesis slow but alive. No earnings until late July.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:48%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">48</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22INTC%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%2228%22%2C%22stop%22%3A%2225%22%2C%22t1%22%3A%2233%22%2C%22catalyst%22%3A%22Trump+Apple+chips+in+US+announcement+%E2%80%94+chip+sector+rebound%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">NVDA</td><td class="price">~$150</td><td><span class="bull">BULLISH</span></td><td class="level">$138</td><td class="level">$168</td>
+          <td class="driver">+2.6% Tuesday on chip rebound. AI demand validated by Micron + TSMC. MU's Burry short is not a read-through to NVDA — different product cycle. Structural AI capex cycle intact. Earnings late August.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:74%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">74</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22NVDA%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22150%22%2C%22stop%22%3A%22138%22%2C%22t1%22%3A%22168%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22AI+demand+structural+%E2%80%94+MU+Burry+short+not+a+NVDA+read-through%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A74%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">ONDS</td><td class="price">$8.02</td><td><span class="bull">BULLISH</span></td><td class="level">$7.30</td><td class="level">$9.75</td>
+          <td class="driver">Q2 orders exceeded $150M. Lockheed Martin collaboration on counter-drone tech. Wedbush and 5 other analysts Strong Buy with $19.83 avg target. Earnings August 17. Risk-off today is near-term headwind but fundamental thesis intact.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:63%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">63</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22ONDS%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%228.02%22%2C%22stop%22%3A%227.30%22%2C%22t1%22%3A%229.75%22%2C%22catalyst%22%3A%22Q2+orders+%24150M%2B+%E2%80%94+Lockheed+partnership+%E2%80%94+Strong+Buy+consensus%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A63%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">WMT</td><td class="price">~$98</td><td><span class="bull">BULLISH</span></td><td class="level">$94</td><td class="level">$105</td>
+          <td class="driver">Defensive retail holding well. Consumer spending resilient per JOLTS. Oil at $68.71 = lower gasoline = consumer tailwind. No specific news today. Structurally sound in any rate environment. Earnings mid-August.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:62%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">62</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22WMT%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%2298%22%2C%22stop%22%3A%2294%22%2C%22t1%22%3A%22105%22%2C%22catalyst%22%3A%22Defensive+retail+%E2%80%94+oil+%2468.71+consumer+tailwind%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A62%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">AAPL</td><td class="price">~$298</td><td><span class="neu">NEUTRAL</span></td><td class="level">$285</td><td class="level">$317</td>
+          <td class="driver">Announced iPhone price increases last week — near-term headwind. But Trump announced Apple will make chips in US — new catalyst. +2.70% Tuesday. 52-week range $196.86–$317.40. Earnings late July. Mixed near-term.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:52%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">52</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22AAPL%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%22298%22%2C%22stop%22%3A%22285%22%2C%22t1%22%3A%22317%22%2C%22catalyst%22%3A%22Trump+chips+in+US+announcement+%E2%80%94+offset+by+iPhone+price+increase%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+        <tr>
+          <td class="ticker">VZ</td><td class="price">verify</td><td><span class="bear">BEARISH</span></td><td class="level">verify</td><td class="level">verify</td>
+          <td class="driver">Removed from Dow Jones Industrial Average, replaced by Alphabet — structural index selling pressure. Rising rates = direct dividend yield headwind. No specific news today beyond the Dow removal. Avoid in rising rate environment.</td>
+          <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:35%;background:#ef4444"></div></div><span class="conv-score" style="color:#ef4444">35</span></div></td>
+          <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22VZ%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22catalyst%22%3A%22Removed+from+DJIA+%E2%80%94+replaced+by+GOOG+%E2%80%94+rising+rate+headwind%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A35%2C%22vix%22%3A18%7D" target="_blank">→ J</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:8px;font-size:10px;color:#475569">Prices marked "verify" could not be confirmed from a search result dated within 24 hours. Check your broker before trading.</div>
   </div>
 </div>
 
 <!-- MACRO CONTEXT -->
 <div class="tab-panel" id="tab-macro">
   <div class="section">
-    <div class="section-title">Macro Context — Post-PCE</div>
+    <div class="section-title">Macro Context — H2 Opens July 1</div>
     <div class="macro-text">
-      <p><strong>PCE confirmed 4.1% YoY — and markets didn't collapse.</strong> That's the key takeaway from Thursday. The in-line print combined with Micron's blowout earnings gave markets two things at once: confirmation that inflation is elevated but not worsening beyond expectations, and confirmation that AI earnings growth remains intact. The S&P 500 closed +0.26%, Nasdaq +0.49%. The system absorbed the data and found equilibrium.</p>
-      <p><strong>The inflation peak thesis is gaining traction.</strong> Multiple economists noted Thursday that May PCE could mark the peak of the latest surge. Oil has fallen from ~$114/bbl at the Iran war peak back to ~$69/bbl with the Strait of Hormuz open. Those lower energy prices haven't shown up in PCE yet — they should begin to appear in June data (reported late July) and July data (reported August). If that disinflationary impulse materialises, the Fed hike narrative softens and equities get a meaningful tailwind.</p>
-      <p><strong>TSMC raised its 2026 revenue forecast</strong> on Thursday — the primary chip manufacturer for Apple and NVDA cited strong AI demand. This was the second major AI demand confirmation in 24 hours after Micron's earnings. Big Tech has signaled AI capex rising past $700 billion in 2026 from $400 billion in 2025. The data points all confirm that spend is real and accelerating.</p>
-      <p><strong>Today is a light Friday</strong> — UMich consumer sentiment at 10 AM ET is the only meaningful data point. Volume will be lower. End-of-week positioning flows may create minor reversals. Don't read too much into Friday price action.</p>
+      <p><strong>The second half of 2026 opens with the market absorbing three simultaneous forces: Iran's diplomatic reversal, a data-heavy day, and profit-taking after a historic Q2.</strong> The S&P 500 closed Q2 up 14%, Nasdaq up 20%, and Dow up 12% — the best quarter since 2020. After a performance like that, the natural H2 opener includes institutional rebalancing and profit-taking, which helps explain why futures are -0.3% to -0.5% even without the Iran news adding additional pressure.</p>
+      <p><strong>Iran's rejection of Doha talks is the session's primary risk catalyst.</strong> Yesterday's optimism about a formal peace deal is evaporating. Tehran ruled out direct talks with US delegates in Qatar. This removes the near-term path to a formal resolution of the Hormuz situation and reintroduces geopolitical risk premium into markets. Oil has already responded (-1.1% to $68.71). The broader equity market reaction is more muted but the direction of risk appetite is clearly negative.</p>
+      <p><strong>The data calendar today is significant.</strong> ADP Employment Change at 8:15 AM ET (forecast 118K) and ISM Manufacturing PMI at 10:00 AM ET (forecast 53.8) both land before Fed Chair Warsh speaks at 9:30 AM ET at the ECB Forum in Sintra. This creates a busy 90-minute window from 8:15 to 10:00 AM ET where three major catalysts overlap. Prepare for elevated volatility and potentially contradictory moves — data driving one direction while Warsh commentary drives another.</p>
+      <p><strong>NFP tomorrow (Thursday July 2) remains the week's defining event.</strong> Forecast: 180K-200K. JOLTS yesterday at a two-year high suggests the labour market is tighter than expected, raising the probability that NFP beats the forecast. A strong NFP above 200K would push September hike probability from 70% toward 90% and likely pressure growth stocks further while benefiting financials. Markets close Friday for Independence Day.</p>
     </div>
   </div>
   <div class="section">
-    <div class="section-title">Key Market Levels</div>
+    <div class="section-title">Key Levels</div>
     <div class="regime-grid">
-      <div class="regime-card"><div class="rc-label">S&P 500 ATH</div><div class="rc-value">~7,750</div><div class="rc-sub">-4.8% away. JPM raised year-end target to 7,800.</div></div>
-      <div class="regime-card"><div class="rc-label">10-Year Yield</div><div class="rc-value" style="color:#f59e0b">4.408%</div><div class="rc-sub">Rising. Rates headwind for growth multiples.</div></div>
-      <div class="regime-card"><div class="rc-label">DXY</div><div class="rc-value" style="color:#22c55e">101.3</div><div class="rc-sub">Sweeping past resistance. USD bull intact.</div></div>
-      <div class="regime-card"><div class="rc-label">VIX 50-day MA</div><div class="rc-value">~7,339</div><div class="rc-sub">SPX 50d MA = support on any dip.</div></div>
+      <div class="regime-card"><div class="rc-label">S&P 500 Q2 return</div><div class="rc-value" style="color:#22c55e">+14%</div><div class="rc-sub">Best quarter since 2020. Profit-taking natural in H2 opener.</div></div>
+      <div class="regime-card"><div class="rc-label">10-Year Yield</div><div class="rc-value" style="color:#f59e0b">4.408%</div><div class="rc-sub">Rising. Warsh speech today key catalyst for direction.</div></div>
+      <div class="regime-card"><div class="rc-label">Gold Q2 return</div><div class="rc-value" style="color:#ef4444">-14%</div><div class="rc-sub">Worst quarter since Q2 2013. Bear thesis intact.</div></div>
+      <div class="regime-card"><div class="rc-label">Oil Q2 return</div><div class="rc-value" style="color:#ef4444">-30%</div><div class="rc-sub">Worst quarter since 2020. Supply glut building.</div></div>
     </div>
   </div>
 </div>
 
-<!-- CALENDAR -->
-<div class="tab-panel" id="tab-calendar">
+<!-- NEWS -->
+<div class="tab-panel" id="tab-news">
   <div class="section">
-    <div class="section-title">Earnings & Economic Calendar</div>
-    <div class="cal-list">
-      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">RESULT<br>Yesterday</div><div class="cal-ticker">PCE</div><div><div class="cal-desc">PCE Inflation (May) — CONFIRMED 4.1% YoY</div><div class="cal-sub">Headline +0.4% m/m (vs +0.5% expected) · Core +0.3% m/m · 3.4% YoY</div><div class="cal-alert">✓ Slightly softer monthly — market took as relief · annual in line · Sep hike ~68% still priced</div></div></div>
-      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">10:00 ET<br>Today</div><div class="cal-ticker">USD</div><div><div class="cal-desc">University of Michigan Consumer Sentiment — Final (June)</div><div class="cal-sub">Inflation expectations component key — if 5-year inflation expectations rise it could reignite hike fears</div></div></div>
-      <div class="cal-item"><div class="cal-imp low"></div><div class="cal-time">Jun 30</div><div class="cal-ticker">NKE</div><div><div class="cal-desc">Nike Q4 FY2026 Earnings</div><div class="cal-sub">Consumer spending health check · DTC vs wholesale mix · China revenue</div></div></div>
-      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">Jul 1</div><div class="cal-ticker">USD</div><div><div class="cal-desc">ADP Employment + ISM Manufacturing PMI (June)</div><div class="cal-sub">First major July data — confirms or challenges Fed's hawkish path</div></div></div>
-      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jul 29</div><div class="cal-ticker">FED</div><div><div class="cal-desc">Next FOMC Meeting</div><div class="cal-sub">September hike probability defined by jobs and inflation data between now and then</div></div></div>
+    <div class="section-title">News — Watchlist Tickers & Macro</div>
+
+    <div class="news-item news-bear">
+      <div class="news-ticker">MU — Bearish</div>
+      <div class="news-headline">Michael Burry Reveals Short Position on Micron</div>
+      <div class="news-sub">Despite MU surging 400% in H1 2026 and cracking S&P 500 top 10 constituents, Burry — famous for the "Big Short" — disclosed a short position premarket. Stock fell 4% on the news. Burry also noted MU committed $250M to Trump accounts national child savings programs. Conviction short from a credible short-seller carries weight even against strong fundamentals.</div>
+    </div>
+
+    <div class="news-item news-bull">
+      <div class="news-ticker">MSFT — Bullish</div>
+      <div class="news-headline">Microsoft to Cut ~2.5% of Workforce to Fund AI Infrastructure</div>
+      <div class="news-sub">Reports indicate Microsoft plans cuts across Xbox, consulting, and sales divisions next week. Market is reading this as cost discipline to preserve capital for massive AI infrastructure expenditure — not as weakness. Stock +1% premarket. This is the "AI capex efficiency" narrative that markets have rewarded in similar announcements from other large-cap tech companies.</div>
+    </div>
+
+    <div class="news-item news-bull">
+      <div class="news-ticker">SPCX — Bullish</div>
+      <div class="news-headline">Wedbush Initiates SpaceX Coverage with Outperform and $190 Target</div>
+      <div class="news-sub">Dan Ives at Wedbush — one of the most followed tech analysts on the street — framed SpaceX as "well-positioned to become a major hyperscaler with its vertically integrated platform across connectivity, launch, and AI infrastructure." Starlink cited as the primary profit driver. Stock +2% to $172.39. Nasdaq-100 inclusion scheduled July 7 adds structural buying demand from index trackers.</div>
+    </div>
+
+    <div class="news-item news-bear">
+      <div class="news-ticker">NKE — Bearish</div>
+      <div class="news-headline">Nike CEO Admits Brand "Not Living Up to Its Full Potential"</div>
+      <div class="news-sub">On the Q4 earnings call, CEO acknowledged softening global sportswear traffic, weak margins in China, and that the turnaround is progressing "more slowly than expected." Stock fell 4% premarket. JPMorgan had already cut price target to $47. Shares down 24% in Q2. Consumer discretionary sector (XLY) will be pressured by the NKE guidance read-through this morning.</div>
+    </div>
+
+    <div class="news-item news-bull">
+      <div class="news-ticker">GOOG — Bullish</div>
+      <div class="news-headline">Alphabet Officially Joins Dow Jones Industrial Average</div>
+      <div class="news-sub">Alphabet replaced Verizon (-5.24% Monday) in the 30-stock Dow Jones Industrial Average effective this week. This creates ongoing structural buying from Dow index-tracking funds. Stock surged 4.96% Monday on the news. The inclusion also signals a broader shift in the Dow's composition toward AI/tech names.</div>
+    </div>
+
+    <div class="news-item news-bear">
+      <div class="news-ticker">VZ — Bearish</div>
+      <div class="news-headline">Verizon Removed from Dow Jones Industrial Average</div>
+      <div class="news-sub">Replaced by Alphabet. Forced selling from Dow index-tracking funds. Stock fell 5.24% Monday. Rising rate environment already a structural headwind for dividend yield plays. The Dow removal adds institutional selling pressure. Avoid until rate narrative changes.</div>
+    </div>
+
+    <div class="news-item news-neu">
+      <div class="news-ticker">GEO — Risk-Off</div>
+      <div class="news-headline">Iran Ruled Out Direct Talks with US in Doha</div>
+      <div class="news-sub">Iran announced it would not meet with US delegates for talks in Qatar, reversing the optimism from the weekend "stand down" agreement. Tehran maintained its position on controlling Hormuz traffic. Oil fell 1.1% to $68.77. Equity futures declined 0.3-0.5%. Risk-off broadly. Watch for any US counter-response — geopolitics remain the primary wildcard this week.</div>
+    </div>
+
+    <div class="news-item news-neu">
+      <div class="news-ticker">MACRO — Key Data Today</div>
+      <div class="news-headline">ADP (8:15 AM) · Warsh at Sintra (9:30 AM) · ISM Manufacturing (10:00 AM)</div>
+      <div class="news-sub">Three overlapping catalysts in a 105-minute window. ADP forecast 118K (prev 122K). ISM Manufacturing forecast 53.8 (prev 54.0). Warsh speaking at ECB Forum in Sintra — first Fed communication since JOLTS showed job openings at 2-year high. Any hawkish signal from Warsh is the primary market-mover of the day. NFP tomorrow is the week's defining event.</div>
+    </div>
+
+    <div class="news-item news-neu">
+      <div class="news-ticker">NFLX — Catalyst Approaching</div>
+      <div class="news-headline">Netflix at 52-Week Low — Earnings July 16</div>
+      <div class="news-sub">NFLX trading at $71.38, near its 52-week low support of $70.86. Multiple analysts calling it a buying opportunity — Bernstein says "take the plunge," Morgan Stanley maintains Buy. 37 analysts rate it Buy with $114 avg target (59% upside). Q1 2026 EPS beat by 55.7%. Revenue growing 12-14% YoY. The Paramount/Warner Bros deal failure removed an acquisition catalyst but the core business is sound. Earnings July 16 is the next key event.</div>
     </div>
   </div>
 </div>
@@ -259,23 +337,24 @@ tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
   <div class="section">
     <div class="section-title">Senior Analyst Note</div>
     <div class="analyst-box">
-      <div class="analyst-label">TPTraders Senior Equities Analyst — June 26, 2026</div>
+      <div class="analyst-label">TPTraders Senior Equities Analyst — July 1, 2026</div>
       <div class="analyst-text">
-        <p><strong>The AI trade is alive — and it just got two data points in one week to prove it.</strong> Micron's blowout earnings Wednesday confirmed AI memory chip demand is surging. TSMC's raised revenue forecast Thursday confirmed the same from the manufacturing side. These aren't coincidences — they're the same underlying story: hyperscalers are spending $700 billion+ on AI infrastructure in 2026 and the semiconductor supply chain is feeling every dollar of it. NVDA, MU, SNDK, and QCOM are the clearest expressions of this theme.</p>
-        <p><strong>The rates headwind is real but manageable.</strong> PCE at 4.1% keeps the Fed hawkish and the 10-year yield elevated at 4.408%. That compresses multiples. But the earnings growth in AI names is outpacing the multiple compression. The S&P 500 tech sector was up 27% over the past three months even with rising rates — earnings power is overwhelming the discount rate headwind for now.</p>
-        <p><strong>Today's session is about staying disciplined, not adding risk.</strong> Friday is low volume, end-of-week positioning. The week's big events (Micron earnings, PCE) are behind us. UMich at 10 AM is the only live catalyst. If the 5-year inflation expectations component in UMich comes in high (above 3.5%), it could briefly spike VIX and pressure semis. That dip would be a buying opportunity in MU and QQQ, not a trend change.</p>
-        <p><strong>Into next week:</strong> Light calendar — June 29 has no major data. June 30 brings consumer confidence and Nike earnings. July 1 brings ADP and ISM Manufacturing. The next big question for equities is whether June PCE (reported late July) starts showing the disinflationary impact of oil falling from $114 to $69. If yes, the rally broadens significantly. If no — if services inflation keeps core PCE sticky — the rates headwind intensifies and the market gets more selective. Trade the AI names now. Reassess the broader market in mid-July.</p>
+        <p><strong>H2 opens exactly the way smart traders should expect — with a speed bump.</strong> Markets don't go up in straight lines, and after a quarter where the S&P 500 gained 14% and the Nasdaq gained 20%, a pause entering the second half is healthy, not alarming. The Iran rejection of Doha talks, the natural H2 rebalancing flows, and a data-heavy day all combine to create a cautious open. This is not a reversal of the bull market. It's a normal reset after a historic quarter.</p>
+        <p><strong>The most important event of today's session is not the data — it's Warsh at Sintra at 9:30 AM ET.</strong> The JOLTS report yesterday showed job openings at a two-year high. Warsh is speaking at the European Central Bank Forum in Portugal immediately after ADP lands. If he acknowledges the tight labour market and signals September is on the table — which the data supports — the Fed hawkish narrative gets a significant boost. Financials (BAC, V) benefit directly. Gold extends its bear. USD extends its rally. Growth stocks face additional multiple compression pressure.</p>
+        <p><strong>SPCX and GOOG are today's structural standouts</strong> on the long side. Wedbush's $190 target initiation on SpaceX from Dan Ives is not a small call — it's institutional validation of the hyperscaler thesis from one of Wall Street's most influential tech analysts. Combined with the July 7 Nasdaq-100 inclusion creating forced buying, SPCX has two independent structural tailwinds. GOOG's Dow inclusion creates similar structural demand. Both are cleaner longs than chasing the broad market on a data-heavy, risk-off day.</p>
+        <p><strong>NFLX at $71.38 near its 52-week low ($70.86) deserves a closer look with earnings on July 16.</strong> The bar is low — the stock is down dramatically from its highs, analyst consensus is overwhelmingly bullish (37 Buy, 0 Sell), and Q1 actually beat estimates significantly. If the stock holds $70.86 support through today's risk-off and into next week, a pre-earnings long with a tight stop is a reasonable setup. The July 16 earnings event is a known catalyst with a clear invalidation level.</p>
+        <p><strong>Avoid MU today.</strong> Burry's short disclosure doesn't change the fundamental AI memory demand thesis, but it changes sentiment in the short term. When a high-profile short-seller with Burry's track record publicly discloses a short on a stock up 400% in a year, institutional traders don't ignore it. Let the selling run its course before re-engaging the long thesis.</p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="footer">Equities Morning Brief · TPTraders Intelligence Hub · 2026-06-26 · NOT FINANCIAL ADVICE<br>
-<a href="https://cbell0920.github.io/tptraders-hub" style="color:#1e3a5f">← TPTraders Hub</a>
+<div class="footer">Equities Morning Brief · TPTraders Intelligence Hub · 2026-07-01 · NOT FINANCIAL ADVICE<br>
+<a href="https://cbell0920.github.io/tptraders-hub">← TPTraders Hub</a>
 </div>
 <script>
 function switchTab(name){
-  const names=['tickers','screening','macro','calendar','analyst'];
+  const names=['overview','watchlist','macro','news','analyst'];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');

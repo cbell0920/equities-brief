@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Equities Morning Brief — 2026-06-29 — TPTraders</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e1a;color:#e2e8f0;font-family:'Inter',system-ui,sans-serif;padding:20px;line-height:1.6}
+a{color:#22c55e;text-decoration:none}a:hover{text-decoration:underline}
+.hdr{background:#0d1221;border:1px solid #1e2d4a;border-radius:12px;padding:16px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.title{font-size:20px;font-weight:700;color:#fff}.sub{font-size:12px;color:#64748b;margin-top:3px}
+.hub-link{color:#22c55e;font-size:12px;font-weight:600;border:1px solid #22c55e33;padding:5px 12px;border-radius:6px}
+.hub-link:hover{background:#22c55e14;text-decoration:none}
+.warn{background:#0f1a14;border:1px solid #22c55e33;border-radius:8px;padding:8px 16px;font-size:11px;color:#4ade80;margin-bottom:18px}
+.section{margin-bottom:26px}
+.section-title{font-size:10px;font-weight:700;color:#22c55e;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #1e2d4a}
+.regime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.regime-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px;text-align:center}
+.rc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.rc-value{font-size:15px;font-weight:700;color:#fff}
+.rc-sub{font-size:10px;color:#64748b;margin-top:4px;line-height:1.4}
+.macro-text{font-size:13px;color:#94a3b8;line-height:1.85}
+.macro-text p{margin-bottom:12px}.macro-text strong{color:#e2e8f0}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a}
+td{padding:7px 10px;border-bottom:1px solid #0d1629;vertical-align:middle}
+tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
+.ticker{font-weight:700;color:#fff;font-family:'Courier New',monospace;font-size:13px}
+.bull{color:#22c55e;font-weight:700}.bear{color:#ef4444;font-weight:700}.neu{color:#f59e0b;font-weight:700}
+.price{font-family:'Courier New',monospace;color:#e2e8f0;font-size:12px}
+.level{font-family:'Courier New',monospace;color:#f59e0b;font-size:11px}
+.driver{color:#64748b;font-size:11px}
+.conv-wrap{display:flex;align-items:center;gap:6px}
+.conv-bar{height:4px;border-radius:2px;background:#1e2d4a;width:60px;position:relative}
+.conv-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0}
+.conv-score{font-family:'Courier New',monospace;font-size:10px}
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px}
+.cal-imp{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:30px}
+.cal-imp.high{background:#ef4444}.cal-imp.med{background:#f59e0b}.cal-imp.low{background:#22c55e}
+.cal-time{font-size:10px;color:#64748b;min-width:65px;font-family:'Courier New',monospace}
+.cal-ticker{font-size:10px;font-weight:700;color:#22c55e;min-width:40px}
+.cal-desc{font-size:12px;color:#e2e8f0;font-weight:500}
+.cal-sub{font-size:10px;color:#64748b;margin-top:2px}
+.cal-alert{font-size:11px;color:#f59e0b;margin-top:2px;font-style:italic}
+.analyst-box{background:#0d1629;border:1px solid #22c55e22;border-left:3px solid #22c55e;border-radius:0 8px 8px 0;padding:16px 18px}
+.analyst-label{font-size:9px;color:#22c55e;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
+.analyst-text{font-size:13px;color:#cbd5e1;line-height:1.85}
+.analyst-text p{margin-bottom:12px}.analyst-text p:last-child{margin-bottom:0}.analyst-text strong{color:#fff}
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:.5px}
+.badge-bull{background:#0a2d0a;color:#22c55e;border:1px solid #22c55e33}
+.badge-bear{background:#2d0a0a;color:#ef4444;border:1px solid #ef444433}
+.badge-neu{background:#2d2000;color:#f59e0b;border:1px solid #f59e0b33}
+.badge-watch{background:#1a1a2d;color:#a78bfa;border:1px solid #a78bfa33}
+.tier-label{font-size:9px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.1em;padding:12px 0 6px;margin-top:4px}
+.journal-btn{display:inline-flex;align-items:center;gap:6px;background:#22c55e18;border:1px solid #22c55e44;color:#22c55e;font-size:10px;font-weight:600;padding:4px 10px;border-radius:4px;cursor:pointer;text-decoration:none;white-space:nowrap;font-family:'Courier New',monospace}
+.journal-btn:hover{background:#22c55e28;text-decoration:none}
+.footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
+.tabs{display:flex;gap:0;border-bottom:1px solid #1e2d4a;margin-bottom:16px;overflow-x:auto}
+.tab{padding:8px 16px;font-size:11px;font-weight:600;color:#475569;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;user-select:none}
+.tab:hover{color:#94a3b8}.tab.active{color:#22c55e;border-bottom-color:#22c55e}
+.tab-panel{display:none}.tab-panel.active{display:block}
+@media(max-width:600px){body{padding:12px}.hdr{flex-direction:column}.regime-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <div class="title">EQUITIES/BRIEF 2026-06-29 — TPTraders</div>
+    <div class="sub">Generated Mon, 29 Jun 2026 | Pre-market | SPY $728.99 · QQQ $706 · VIX 18.41 · Iran peace hopes lift Nasdaq futures</div>
+  </div>
+  <a class="hub-link" href="https://cbell0920.github.io/tptraders-hub">← Hub</a>
+</div>
+<div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only.</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('tickers')">Tickers</div>
+  <div class="tab" onclick="switchTab('screening')">Screening</div>
+  <div class="tab" onclick="switchTab('macro')">Macro Context</div>
+  <div class="tab" onclick="switchTab('calendar')">Calendar</div>
+  <div class="tab" onclick="switchTab('analyst')">Analyst Note</div>
+</div>
+
+<!-- TICKERS -->
+<div class="tab-panel active" id="tab-tickers">
+  <div class="section">
+    <div class="section-title">Market Regime</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">Regime</div><div class="rc-value" style="color:#22c55e">RISK-ON</div><div class="rc-sub">Iran peace talks on track · Nasdaq futures up</div></div>
+      <div class="regime-card"><div class="rc-label">SPY (Fri close)</div><div class="rc-value" style="color:#ef4444">$728.99</div><div class="rc-sub">-0.72% Fri · tech selloff · rotation to health/industrial</div></div>
+      <div class="regime-card"><div class="rc-label">QQQ (Sun)</div><div class="rc-value" style="color:#ef4444">$706.27</div><div class="rc-sub">Down from $748.65 ATH · semi selloff week · -5.7% off high</div></div>
+      <div class="regime-card"><div class="rc-label">VIX</div><div class="rc-value" style="color:#22c55e">18.41</div><div class="rc-sub">-2.54% Fri · below 20 · Iran risk-on lifting it lower</div></div>
+    </div>
+  </div>
+
+  <!-- ANCHORS -->
+  <div class="tier-label">▸ Anchors — Market Direction Indicators</div>
+  <table>
+    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Key Level</th><th>Signal</th><th>Conviction</th><th>Notes</th><th></th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ticker">SPY</td><td class="price">$728.99</td><td><span class="neu">NEUTRAL</span></td><td class="level">$720 support</td>
+        <td style="font-size:11px;color:#f59e0b">Wait for NFP</td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:55%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">55</span></div></td>
+        <td class="driver">Iran peace lift this morning. Tech rotation out. S&P Equal Weight showing new strength — breadth improving. NFP Friday is the real test for direction.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22SPY%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%22728.99%22%2C%22stop%22%3A%22720%22%2C%22t1%22%3A%22748%22%2C%22regime%22%3A%22RISK-ON%22%2C%22vix%22%3A18.41%2C%22catalyst%22%3A%22Iran+peace+talks+on+track+%E2%80%94+NFP+Friday+is+the+key+test%22%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">QQQ</td><td class="price">$706.27</td><td><span class="neu">MIXED</span></td><td class="level">$700 support</td>
+        <td style="font-size:11px;color:#f59e0b">Rotation out of tech</td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:52%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">52</span></div></td>
+        <td class="driver">Tech selloff continued Friday despite strong Micron earnings. AI cost concerns and reported OpenAI IPO delay weighed on sentiment. SpaceX Nasdaq 100 inclusion positive for index. $700 is key support.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22QQQ%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%22706%22%2C%22stop%22%3A%22700%22%2C%22t1%22%3A%22730%22%2C%22regime%22%3A%22RISK-ON%22%2C%22vix%22%3A18.41%2C%22catalyst%22%3A%22SpaceX+Nasdaq+100+inclusion+%E2%80%94+Iran+peace+lift%22%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">VIX</td><td class="price">18.41</td><td><span class="bull">EASING</span></td><td class="level">20 = caution</td>
+        <td style="font-size:11px;color:#22c55e">Risk-on falling</td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:65%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">65</span></div></td>
+        <td class="driver">VIX fell 2.54% Friday to 18.41. Iran peace hopes pushing it lower pre-market. Below 20 = options premiums normalising. Watch for spike if Iran talks break down.</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- BELLWETHERS -->
+  <div class="tier-label">▸ Bellwethers — Educational Reference (always present)</div>
+  <table>
+    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Conditions</th><th>Notes</th><th></th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ticker">AAPL</td><td class="price">~$212</td><td><span class="bear">BEARISH</span></td>
+        <td style="font-size:11px;color:#ef4444">☁ Unfavorable: announced iPhone price increases · rates headwind · AI cost concerns dragging mega-cap</td>
+        <td class="driver">Apple and Microsoft announced price increases on iPhone and Xbox last week — Mag7 fell on the news. Rates headwind + AI cost concerns continue to pressure growth multiples.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22AAPL%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22regime%22%3A%22RISK-ON%22%2C%22vix%22%3A18.41%2C%22catalyst%22%3A%22iPhone+price+increase+%E2%80%94+AI+cost+concerns+%E2%80%94+rates+headwind%22%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">NVDA</td><td class="price">~$142</td><td><span class="neu">NEUTRAL</span></td>
+        <td style="font-size:11px;color:#f59e0b">⚡ Mixed: AI demand confirmed by Micron but semiconductor selloff hit NVDA · AI cost concerns mounting</td>
+        <td class="driver">Semiconductor sector fell 7.9% last week despite Micron's blowout earnings. AI cost concerns and spiraling capex worries offset the fundamental demand story. Watch for stabilisation.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22NVDA%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22RISK-ON%22%2C%22vix%22%3A18.41%2C%22catalyst%22%3A%22AI+demand+intact+but+semi+selloff+%E2%80%94+wait+for+stabilisation%22%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">MSFT</td><td class="price">~$463</td><td><span class="bear">BEARISH</span></td>
+        <td style="font-size:11px;color:#ef4444">☁ Unfavorable: Xbox price increase · AI cost concerns · rates headwind · software rotation out</td>
+        <td class="driver">Microsoft announced Xbox price increases — Mag7 fell in response. Software sector rotating out in favour of healthcare and industrials. Rates headwind for growth multiples.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22MSFT%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22regime%22%3A%22RISK-ON%22%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">GOOGL</td><td class="price">~$197</td><td><span class="neu">NEUTRAL</span></td>
+        <td style="font-size:11px;color:#64748b">☁ Unfavorable: AI cost concerns · ad spend sensitivity · software rotation out</td>
+        <td class="driver">No specific catalyst. AI cost concerns and rotation out of software keep GOOGL under pressure. Watching for any stabilisation signal.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GOOGL%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22RISK-ON%22%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- DYNAMIC PICKS -->
+  <div class="tier-label">▸ Dynamic Picks — Today's AI-Screened Setups</div>
+  <table>
+    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Stop</th><th>T1</th><th>Type</th><th>Conviction</th><th>Catalyst</th><th></th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ticker">CMCSA</td><td class="price">+25% pre</td><td><span class="bull">BULLISH</span></td>
+        <td class="level">Prior close</td><td class="level">Gap extension</td>
+        <td><span class="badge badge-bull">MOMENTUM</span></td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:78%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">78</span></div></td>
+        <td class="driver">Comcast announced NBCUniversal and Sky spinoff — two publicly traded companies. Shares surged 25% pre-market. Gap-and-go candidate if the open holds.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22CMCSA%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22NBCUniversal+%2B+Sky+spinoff+announced+%E2%80%94+shares+%2B25%25+pre-market%22%2C%22regime%22%3A%22RISK-ON%22%2C%22conviction%22%3A78%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">ONDS</td><td class="price">$7.84</td><td><span class="bull">BULLISH</span></td>
+        <td class="level">$7.20</td><td class="level">$9.50</td>
+        <td><span class="badge badge-watch">SPECULATIVE</span></td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:62%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">62</span></div></td>
+        <td class="driver">$40M+ new defense orders announced June 22. Volume 123M vs 62.8M avg on June 28 — significant. Lockheed Martin collaboration. Cyberhawk acquisition. Earnings Aug 10. Wall Street $20.14 avg target.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22ONDS%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%227.84%22%2C%22stop%22%3A%227.20%22%2C%22t1%22%3A%229.50%22%2C%22catalyst%22%3A%22%2440M%2B+defense+orders+%E2%80%94+Lockheed+collaboration+%E2%80%94+vol+2x+avg%22%2C%22regime%22%3A%22RISK-ON%22%2C%22conviction%22%3A62%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">XLV</td><td class="price">$160.34</td><td><span class="bull">BULLISH</span></td>
+        <td class="level">$155</td><td class="level">$170</td>
+        <td><span class="badge badge-bull">LONG CALLS</span></td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:72%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">72</span></div></td>
+        <td class="driver">Healthcare ETF +3.03% Friday — leading the market breadth rotation out of tech. Obesity drugs nearing major milestone (Lilly potential game-changer per Schwab). Defensive rotation in rising rate environment. IHE +3.32%, XLV +3.03%, IYH +3.02%.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22XLV%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22160.34%22%2C%22stop%22%3A%22155%22%2C%22t1%22%3A%22170%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22Healthcare+leading+rotation+%E2%80%94+obesity+drug+milestone+%E2%80%94+defensive+bid%22%2C%22regime%22%3A%22RISK-ON%22%2C%22conviction%22%3A72%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">GLD</td><td class="price">$367</td><td><span class="bear">BEARISH</span></td>
+        <td class="level">$376</td><td class="level">$352</td>
+        <td><span class="badge badge-bear">LONG PUTS</span></td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:70%;background:#ef4444"></div></div><span class="conv-score" style="color:#ef4444">70</span></div></td>
+        <td class="driver">Gold $4,070 — down 0.64% Friday. PCE 4.1% hawkish Fed + DXY 101.2 = rising real rates headwind. Iran peace talks add oil-disinflationary pressure. Gold bear thesis intact. Buy puts on any bounce to $370–372.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GLD%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22key_level%22%3A%22367%22%2C%22stop%22%3A%22376%22%2C%22t1%22%3A%22352%22%2C%22call_put%22%3A%22Put%22%2C%22catalyst%22%3A%22PCE+4.1%25+%2B+DXY+101.2+%2B+rising+real+rates%22%2C%22regime%22%3A%22RISK-ON%22%2C%22conviction%22%3A70%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SCREENING -->
+<div class="tab-panel" id="tab-screening">
+  <div class="section">
+    <div class="section-title">Screening Rationale — June 29</div>
+    <div class="macro-text">
+      <p><strong>Environment today:</strong> Risk-on from Iran peace talk optimism. No major data (lightest calendar day of the week). Nasdaq futures up pre-market. VIX 18.41. The rotation OUT of tech and INTO healthcare/industrials/financials that began last week appears to be continuing.</p>
+      <p><strong>CMCSA (Comcast)</strong> — The biggest single-stock catalyst of the morning. NBCUniversal and Sky spinoff announcement — two publicly traded companies, tax-free for shareholders. Shares +25% pre-market. Mike Cavanagh becomes CEO of NBCUniversal, Michael Angelakis becomes CEO of Comcast. The management restructuring unlocks hidden value in both assets. Classic gap-and-go candidate. Risk: if the gap fades at the open (common with 25%+ pre-market moves), wait for 30 minutes to confirm the hold before entering. Stop at prior Friday close if gap holds. No options data available at brief time — verify before entering options plays.</p>
+      <p><strong>ONDS (Ondas Inc.)</strong> — Confirmed live price $7.84 (range $7.36–$7.97 Sunday June 28, volume 123.72M vs 62.8M avg). The elevated volume on a Sunday suggests significant institutional interest building. $40M+ defense orders, Lockheed Martin collaboration on counter-drone technology, Cyberhawk acquisition expanding infrastructure platform. Wall Street: 7 Buys, 0 Holds/Sells, $20.14 average target. Share dilution from Omnisys acquisition (16.8M shares) is the overhang — capped at 15% of 10-day average daily volume per prospectus. Earnings August 10. Risk-on environment today supports small-cap speculative positions.</p>
+      <p><strong>XLV (Healthcare ETF)</strong> — New pick today. Healthcare led Friday's rotation with XLV +3.03%, IHE +3.32%. Obesity drug milestone approaching — Lilly potential game-changer. Defensive rotation in rising rate environment benefits healthcare. Advancing shares outnumbered declining ones all week despite index losses — breadth confirming the rotation. ETF approach gives diversified exposure without single-stock concentration risk.</p>
+      <p><strong>GLD (Gold ETF)</strong> — Carry-over. Gold $4,070, down from last week. PCE 4.1% confirmed the hawkish Fed path. DXY 101.2. Real rates rising. Iran peace progress adds oil-disinflationary tailwind that further undermines gold's inflation hedge appeal. Put thesis intact — buy on bounces.</p>
+      <p><strong>Not selected today:</strong> MU — up 17% last week, gap held, but semi sector still under pressure from AI cost concerns. Wait for cleaner entry after sector stabilises. QCOM — same sector headwind. AAPL/MSFT — bearish (price increases announced last week).</p>
+    </div>
+  </div>
+</div>
+
+<!-- MACRO CONTEXT -->
+<div class="tab-panel" id="tab-macro">
+  <div class="section">
+    <div class="section-title">Macro Context — Week of June 29</div>
+    <div class="macro-text">
+      <p><strong>The market enters the final week of Q2 2026 with a significant rotation underway.</strong> Technology — specifically semiconductors and mega-cap software — fell sharply last week despite Micron's blowout earnings. The PHLX chip index fell 7.9% for the week. Concerns about spiraling AI costs, a reported delay to the OpenAI IPO, and Apple and Microsoft announcing price increases on consumer products all weighed on the Mag7. Meanwhile, healthcare (+3%), industrials, and financials led — advancing shares outnumbered declining shares even on down days for the Nasdaq.</p>
+      <p><strong>This rotation is constructive for broader market health even as mega-caps struggle.</strong> When money rotates from one sector to another rather than leaving the market entirely, it signals institutional repositioning rather than risk-off liquidation. The S&P Equal Weight index rose 0.7% Thursday even as the S&P 500 finished slightly lower. That divergence tells you money is moving, not fleeing.</p>
+      <p><strong>The week's defining event is NFP on Friday July 2.</strong> A strong payrolls report would push September rate hike probability from 68% toward 90%+, likely extending the USD rally, pressuring growth stocks further, and benefiting financials and healthcare. A weak report would provide relief for tech and growth stocks. Position carefully heading into the data — today's light calendar gives you the cleanest possible entry conditions for whatever thesis you want to run into Friday.</p>
+      <p><strong>SpaceX inclusion in the Nasdaq 100</strong> was announced Friday. This is structurally positive for QQQ over time — SpaceX represents a significant addition of defense and aerospace exposure to what has been a tech-dominated index. The inclusion mechanics will drive forced buying from QQQ-tracking funds.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Key Levels</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">SPY ATH distance</div><div class="rc-value" style="color:#f59e0b">-3.0%</div><div class="rc-sub">From $748.65 ATH. JPM target 7,800.</div></div>
+      <div class="regime-card"><div class="rc-label">QQQ Support</div><div class="rc-value">$700</div><div class="rc-sub">Key level. Break below = further tech weakness.</div></div>
+      <div class="regime-card"><div class="rc-label">10-Year Yield</div><div class="rc-value" style="color:#f59e0b">4.372%</div><div class="rc-sub">Easing slightly. Below 4.3% = growth stocks breathe.</div></div>
+      <div class="regime-card"><div class="rc-label">VIX</div><div class="rc-value" style="color:#22c55e">18.41</div><div class="rc-sub">Below 20. Iran peace helping. Watch for spike.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="tab-panel" id="tab-calendar">
+  <div class="section">
+    <div class="section-title">Earnings & Economic Calendar — Week of June 29</div>
+    <div class="cal-list">
+      <div class="cal-item"><div class="cal-imp low"></div><div class="cal-time">Today<br>Jun 29</div><div class="cal-ticker">ALL</div><div><div class="cal-desc">No major scheduled data or earnings</div><div class="cal-sub">Iran peace talk developments are the primary intraday catalyst. Comcast spinoff announcement drives CMCSA.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jun 30</div><div class="cal-ticker">NKE/STZ</div><div><div class="cal-desc">Nike Q4 FY2026 + Constellation Brands Earnings</div><div class="cal-sub">Nike = consumer spending health. STZ = consumer staples. Both give read on consumer resilience.</div><div class="cal-alert">⚠ NKE guidance will influence XLY and consumer discretionary sector</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jun 30</div><div class="cal-ticker">USD</div><div><div class="cal-desc">June Consumer Confidence + May JOLTS</div><div class="cal-sub">Consumer health check. JOLTS job openings confirms labour market narrative ahead of NFP.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jul 1</div><div class="cal-ticker">USD</div><div><div class="cal-desc">ADP Employment Change + ISM Manufacturing PMI (June)</div><div class="cal-sub">NFP warm-up. ISM manufacturing PMI confirms industrial health after Hormuz reopening.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jul 2</div><div class="cal-ticker">NFP</div><div><div class="cal-desc">Non-Farm Payrolls + Unemployment Rate (June)</div><div class="cal-sub">Most important data of the week. Strong = Sep hike near certain = USD up, growth stocks down. Weak = relief rally in QQQ.</div><div class="cal-alert">⚠ Holiday-shortened week — NFP on Wednesday. US markets closed Thursday Jul 3.</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">Aug 10</div><div class="cal-ticker">ONDS</div><div><div class="cal-desc">Ondas Inc. Earnings (est.)</div><div class="cal-sub">Q2 2026 results. Previous Q1 crushed estimates — revenue $50.1M (10x YoY). Watch for guidance on $40M+ defense orders.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYST NOTE -->
+<div class="tab-panel" id="tab-analyst">
+  <div class="section">
+    <div class="section-title">Senior Analyst Note</div>
+    <div class="analyst-box">
+      <div class="analyst-label">TPTraders Senior Equities Analyst — June 29, 2026</div>
+      <div class="analyst-text">
+        <p><strong>The rotation is the story, not the selloff.</strong> Last week's tech weakness looked alarming on the surface — the PHLX chip index fell 7.9%, Mag7 fell on price increase announcements, QQQ dropped from $721 to $706. But underneath those headline numbers, advancing shares outnumbered declining ones every day. Money didn't leave the market. It moved from tech to healthcare, industrials, and financials. That's a healthy bull market rotation, not the beginning of a bear market.</p>
+        <p><strong>Comcast is today's headline trade.</strong> The NBCUniversal and Sky spinoff is a genuine value-unlock event — not a financial engineering gimmick, but a structural separation that gives each business an entrepreneurial management team and access to dedicated capital. When a $20 billion+ media conglomerate unlocks two distinct businesses, the sum of parts typically exceeds the whole. The 25% pre-market surge is real and institutional. The management assignments (Cavanagh to NBCUniversal, Angelakis to Comcast) are credible. The risk is purely execution — watch the first 30 minutes after the open. If the gap holds above prior close, the trade is valid. If it fades hard, step aside.</p>
+        <p><strong>Healthcare (XLV) is the cleanest rotation play this week.</strong> The sector is structurally attractive in a rising rate environment — defensible revenues, dividend support, and genuine earnings growth from obesity drug developments. Lilly approaching a potential game-changer catalyst, AbbVie surging on Skyrizi expanded approval. The sector led Friday's breadth with XLV +3.03%. Entering early in the week before NFP on Friday gives you the best risk/reward timing — healthcare tends to hold its gains even on strong jobs data that pressures tech.</p>
+        <p><strong>ONDS deserves attention this week.</strong> The $40M+ defense order announcement combined with Sunday's elevated volume (123M vs 62.8M average) suggests institutional accumulation. The Lockheed Martin Sentrycs collaboration is significant — Lockheed doesn't partner with companies they don't believe in. The Wall Street consensus ($20.14 average target, 7 Buys, 0 Sells) is unusually unified for a small-cap. The share dilution overhang is the primary risk — but it's capped at 15% of average daily volume per the prospectus. Risk-on today from Iran peace news supports small-cap sentiment. This is a speculative position — size appropriately.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Equities Morning Brief · TPTraders Intelligence Hub · 2026-06-29 · NOT FINANCIAL ADVICE<br>
+<a href="https://cbell0920.github.io/tptraders-hub" style="color:#1e3a5f">← TPTraders Hub</a>
+</div>
+<script>
+function switchTab(name){
+  const names=['tickers','screening','macro','calendar','analyst'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+</script>
+</body>
+</html>

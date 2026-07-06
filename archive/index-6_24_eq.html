@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Equities Brief — 2026-06-24 — TPTraders</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e1a;color:#e2e8f0;font-family:'Inter',system-ui,sans-serif;padding:20px;line-height:1.6}
+a{color:#22c55e;text-decoration:none}
+a:hover{text-decoration:underline}
+
+.hdr{background:#0d1221;border:1px solid #1e2d4a;border-radius:12px;padding:16px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.hdr-left .title{font-size:20px;font-weight:700;color:#fff;letter-spacing:.3px}
+.hdr-left .sub{font-size:12px;color:#64748b;margin-top:3px}
+.hub-link{color:#22c55e;font-size:12px;font-weight:600;border:1px solid #22c55e33;padding:5px 12px;border-radius:6px}
+.hub-link:hover{background:#22c55e14;text-decoration:none}
+
+.warn{background:#0f1a14;border:1px solid #22c55e33;border-radius:8px;padding:8px 16px;font-size:11px;color:#4ade80;margin-bottom:18px}
+
+.screen-banner{background:#111827;border:1px solid #22c55e22;border-left:3px solid #22c55e;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:18px;font-size:11px;color:#94a3b8}
+.screen-banner strong{color:#22c55e}
+
+.section{margin-bottom:26px}
+.section-title{font-size:10px;font-weight:700;color:#22c55e;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #1e2d4a}
+
+/* tabs */
+.tabs{display:flex;gap:0;border-bottom:1px solid #1e2d4a;margin-bottom:16px;overflow-x:auto}
+.tab{padding:8px 16px;font-size:11px;font-weight:600;color:#475569;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;user-select:none}
+.tab:hover{color:#94a3b8}
+.tab.active{color:#22c55e;border-bottom-color:#22c55e}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ticker cards */
+.ticker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.ticker-card{background:#111827;border:1px solid #1e2d4a;border-radius:10px;overflow:hidden}
+.tc-head{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e2d4a}
+.tc-left{display:flex;align-items:center;gap:10px}
+.tc-symbol{font-size:16px;font-weight:700;color:#fff;font-family:'Courier New',monospace}
+.tc-name{font-size:10px;color:#64748b;margin-top:1px}
+.tc-tier{font-size:8px;padding:2px 6px;border-radius:3px;font-weight:700;letter-spacing:.5px}
+.tier-anchor{background:#0d1a2d;color:#60a5fa;border:1px solid #3b82f633}
+.tier-dynamic{background:#1a0d2d;color:#a78bfa;border:1px solid #8b5cf633}
+.tc-price{text-align:right}
+.tc-price-val{font-size:16px;font-weight:700;font-family:'Courier New',monospace;color:#fff}
+.tc-price-chg{font-size:11px;font-weight:600;margin-top:1px}
+.up{color:#22c55e}
+.dn{color:#ef4444}
+.nu{color:#f59e0b}
+
+.tc-body{padding:12px 14px}
+.tc-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:8px}
+.tc-label{font-size:9px;color:#475569;text-transform:uppercase;letter-spacing:.7px;margin-bottom:2px}
+.tc-val{font-size:11px;color:#e2e8f0;font-weight:500}
+.tc-val.mono{font-family:'Courier New',monospace;color:#f59e0b}
+.tc-val.green{color:#22c55e;font-weight:700}
+.tc-val.red{color:#ef4444;font-weight:700}
+.tc-val.amber{color:#f59e0b;font-weight:700}
+
+.tc-bias{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.bias-badge{padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.5px}
+.bias-bull{background:#0a2d0a;color:#22c55e;border:1px solid #22c55e33}
+.bias-bear{background:#2d0a0a;color:#ef4444;border:1px solid #ef444433}
+.bias-neu{background:#2d2000;color:#f59e0b;border:1px solid #f59e0b33}
+.bias-watch{background:#0d1a2d;color:#60a5fa;border:1px solid #3b82f633}
+
+.conv-wrap{display:flex;align-items:center;gap:6px;flex:1}
+.conv-bar{height:4px;border-radius:2px;background:#1e2d4a;flex:1;position:relative;max-width:80px}
+.conv-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0}
+.conv-score{font-family:'Courier New',monospace;font-size:10px;min-width:28px}
+
+.tc-options{background:#0d1629;border-radius:6px;padding:8px 10px;margin-bottom:8px}
+.tc-options-title{font-size:9px;color:#475569;text-transform:uppercase;letter-spacing:.7px;margin-bottom:5px;font-weight:700}
+.opt-row{display:flex;gap:6px;flex-wrap:wrap}
+.opt-tag{font-size:10px;padding:2px 7px;border-radius:4px}
+.opt-green{background:#0a2d0a;color:#22c55e;border:1px solid #22c55e22}
+.opt-red{background:#2d0a0a;color:#ef4444;border:1px solid #ef444433}
+.opt-amber{background:#2d2000;color:#f59e0b;border:1px solid #f59e0b22}
+.opt-blue{background:#0d1a2d;color:#60a5fa;border:1px solid #3b82f622}
+
+.tc-why{font-size:10px;color:#64748b;line-height:1.5;font-style:italic}
+.tc-catalyst{font-size:10px;color:#a78bfa;margin-top:4px;font-weight:500}
+
+.tc-foot{padding:8px 14px;background:#0d1221;border-top:1px solid #1e2d4a;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tc-stop{font-size:10px;color:#ef4444}
+.tc-target{font-size:10px;color:#22c55e}
+.tc-risk{font-size:10px;color:#f59e0b}
+
+/* macro cards */
+.macro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.macro-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px;text-align:center}
+.mc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.mc-val{font-size:15px;font-weight:700;font-family:'Courier New',monospace;color:#fff}
+.mc-sub{font-size:9px;color:#64748b;margin-top:3px;line-height:1.4}
+
+/* screening methodology */
+.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.method-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px}
+.method-title{font-size:10px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px}
+.method-list{list-style:none;padding:0}
+.method-list li{font-size:11px;color:#94a3b8;padding:2px 0;padding-left:14px;position:relative}
+.method-list li::before{content:'✓';position:absolute;left:0;color:#22c55e;font-size:10px}
+.method-list li.fail::before{content:'✗';color:#ef4444}
+.method-list li.warn::before{content:'⚠';color:#f59e0b}
+
+.analyst-box{background:#0d1629;border:1px solid #22c55e22;border-left:3px solid #22c55e;border-radius:0 8px 8px 0;padding:16px 18px}
+.analyst-label{font-size:9px;color:#22c55e;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
+.analyst-text{font-size:13px;color:#cbd5e1;line-height:1.85}
+.analyst-text p{margin-bottom:12px}
+.analyst-text p:last-child{margin-bottom:0}
+.analyst-text strong{color:#fff}
+
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px}
+.cal-imp{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:30px}
+.cal-imp.high{background:#ef4444}
+.cal-imp.med{background:#f59e0b}
+.cal-imp.low{background:#22c55e}
+.cal-time{font-size:10px;color:#64748b;min-width:65px;font-family:'Courier New',monospace}
+.cal-ticker{font-size:10px;font-weight:700;color:#22c55e;min-width:40px}
+.cal-desc{font-size:12px;color:#e2e8f0;font-weight:500}
+.cal-sub{font-size:10px;color:#64748b;margin-top:2px}
+.cal-alert{font-size:11px;color:#f59e0b;margin-top:2px;font-style:italic}
+
+.footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
+
+@media(max-width:600px){
+  body{padding:12px}
+  .hdr{flex-direction:column;align-items:flex-start}
+  .ticker-grid{grid-template-columns:1fr}
+  .macro-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-left">
+    <div class="title">EQUITIES BRIEF 2026-06-24 — TPTraders</div>
+    <div class="sub">Generated Wed, 24 Jun 2026 | AI-screened universe | 3 anchors + 5 dynamic picks | Powered by TPTraders Intelligence</div>
+  </div>
+  <a class="hub-link" href="https://cbell0920.github.io/tptraders-hub">← Hub</a>
+</div>
+
+<div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only. All content is informational.</div>
+
+<div class="screen-banner">
+  <strong>AI SCREENING CRITERIA APPLIED:</strong> &nbsp;Pre-market volume spike ≥2x avg &nbsp;·&nbsp; Defined catalyst today &nbsp;·&nbsp; Avg daily volume &gt;1M shares &nbsp;·&nbsp; Options OI &gt;500 &nbsp;·&nbsp; Risk-to-stop ≤ ~$40–50/contract or equivalent in shares &nbsp;·&nbsp; Directional edge identifiable &nbsp;·&nbsp; All 4 styles: long calls, long puts, directional shares, momentum scalps
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('tickers')">Tickers</div>
+  <div class="tab" onclick="switchTab('screen')">Screening</div>
+  <div class="tab" onclick="switchTab('macro')">Macro Context</div>
+  <div class="tab" onclick="switchTab('calendar')">Calendar</div>
+  <div class="tab" onclick="switchTab('analyst')">Analyst Note</div>
+</div>
+
+<!-- TICKERS TAB -->
+<div class="tab-panel active" id="tab-tickers">
+
+  <div class="section">
+    <div class="section-title">⚓ Anchor Positions — Always Present</div>
+    <div class="ticker-grid">
+
+      <!-- SPY -->
+      <div class="ticker-card">
+        <div class="tc-head">
+          <div class="tc-left">
+            <div>
+              <div class="tc-symbol">SPY</div>
+              <div class="tc-name">SPDR S&P 500 ETF</div>
+            </div>
+            <span class="tc-tier tier-anchor">ANCHOR</span>
+          </div>
+          <div class="tc-price">
+            <div class="tc-price-val">~$736</div>
+            <div class="tc-price-chg dn">-1.44% yesterday</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bias">
+            <span class="bias-badge bias-neu">NEUTRAL / BEARISH TILT</span>
+            <div class="conv-wrap">
+              <div class="conv-bar"><div class="conv-fill" style="width:60%;background:#f59e0b"></div></div>
+              <span class="conv-score nu">60</span>
+            </div>
+          </div>
+          <div class="tc-row">
+            <div><div class="tc-label">Support</div><div class="tc-val mono">$720 / $700</div></div>
+            <div><div class="tc-label">Resistance</div><div class="tc-val mono">$750 / $760</div></div>
+            <div><div class="tc-label">Signal</div><div class="tc-val amber">Watch PCE</div></div>
+          </div>
+          <div class="tc-options">
+            <div class="tc-options-title">Options Context</div>
+            <div class="opt-row">
+              <span class="opt-amber">High IV — PCE today</span>
+              <span class="opt-blue">Put spread below $720 for protection</span>
+              <span class="opt-green">Call on bounce if PCE soft</span>
+            </div>
+          </div>
+          <div class="tc-why">Market direction anchor. Hot PCE → SPY retests $720. Soft PCE → relief bounce to $750. Do not trade SPY in isolation from today's 08:30 print.</div>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-stop">Stop: Below $720</span>
+          <span class="tc-target">Target: $750 (bounce) / $700 (breakdown)</span>
+          <span class="tc-risk">Risk: PCE binary</span>
+        </div>
+      </div>
+
+      <!-- QQQ -->
+      <div class="ticker-card">
+        <div class="tc-head">
+          <div class="tc-left">
+            <div>
+              <div class="tc-symbol">QQQ</div>
+              <div class="tc-name">Invesco Nasdaq-100 ETF</div>
+            </div>
+            <span class="tc-tier tier-anchor">ANCHOR</span>
+          </div>
+          <div class="tc-price">
+            <div class="tc-price-val">$713.65</div>
+            <div class="tc-price-chg dn">-3.31% (24h)</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bias">
+            <span class="bias-badge bias-bear">BEARISH TILT</span>
+            <div class="conv-wrap">
+              <div class="conv-bar"><div class="conv-fill" style="width:72%;background:#ef4444"></div></div>
+              <span class="conv-score dn">72</span>
+            </div>
+          </div>
+          <div class="tc-row">
+            <div><div class="tc-label">Support</div><div class="tc-val mono">$701 / $686</div></div>
+            <div><div class="tc-label">Resistance</div><div class="tc-val mono">$725 / $744</div></div>
+            <div><div class="tc-label">52-wk range</div><div class="tc-val mono">$536–$748</div></div>
+          </div>
+          <div class="tc-options">
+            <div class="tc-options-title">Options Context</div>
+            <div class="opt-row">
+              <span class="opt-red">Lost $717 support yesterday</span>
+              <span class="opt-amber">Next liquidity pool: $701</span>
+              <span class="opt-blue">MU earnings tonight = semi catalyst</span>
+            </div>
+          </div>
+          <div class="tc-why">Lost $717 support. Bearish below that level. MU earnings tonight determines if semis bounce or take a second leg down — QQQ follows semis closely. Do not go long QQQ ahead of MU print.</div>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-stop">Stop: Above $725 (short)</span>
+          <span class="tc-target">Target: $701 then $686</span>
+          <span class="tc-risk">Risk: MU beat reverses semi selloff</span>
+        </div>
+      </div>
+
+      <!-- VIX -->
+      <div class="ticker-card">
+        <div class="tc-head">
+          <div class="tc-left">
+            <div>
+              <div class="tc-symbol">VIX</div>
+              <div class="tc-name">CBOE Volatility Index</div>
+            </div>
+            <span class="tc-tier tier-anchor">ANCHOR</span>
+          </div>
+          <div class="tc-price">
+            <div class="tc-price-val">19.49</div>
+            <div class="tc-price-chg dn">+12.79% yesterday</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bias">
+            <span class="bias-badge bias-watch">ELEVATED — WATCH</span>
+            <div class="conv-wrap">
+              <div class="conv-bar"><div class="conv-fill" style="width:55%;background:#60a5fa"></div></div>
+              <span class="conv-score" style="color:#60a5fa">—</span>
+            </div>
+          </div>
+          <div class="tc-row">
+            <div><div class="tc-label">Key level</div><div class="tc-val mono">20.00 (inflection)</div></div>
+            <div><div class="tc-label">Prior peak</div><div class="tc-val mono">22.22 (Jun 10)</div></div>
+            <div><div class="tc-label">March high</div><div class="tc-val mono">31.05</div></div>
+          </div>
+          <div class="tc-options">
+            <div class="tc-options-title">Regime Read</div>
+            <div class="opt-row">
+              <span class="opt-amber">VIX 19.49 — elevated but not crisis</span>
+              <span class="opt-red">Break above 20 = hedging accelerates</span>
+              <span class="opt-green">Below 18 = fear receding, risk-on</span>
+            </div>
+          </div>
+          <div class="tc-why">Use VIX as regime filter. Above 20: prefer defined-risk trades, tighter sizing. Below 18: broader exposure acceptable. Hot PCE today likely pushes VIX through 20 — watch for options premium expansion across the board.</div>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-stop" style="color:#60a5fa">Not traded directly</span>
+          <span class="tc-target" style="color:#60a5fa">Regime filter only</span>
+          <span class="tc-risk">Watch: 20 = inflection</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🤖 AI Dynamic Picks — Today's Screened Universe</div>
+    <div class="ticker-grid">
+
+      <!-- MU -->
+      <div class="ticker-card" style="border-color:#a78bfa33">
+        <div class="tc-head" style="background:#110d1a">
+          <div class="tc-left">
+            <div>
+              <div class="tc-symbol">MU</div>
+              <div class="tc-name">Micron Technology</div>
+            </div>
+            <span class="tc-tier tier-dynamic">DYNAMIC</span>
+          </div>
+          <div class="tc-price">
+            <div class="tc-price-val">~$1,057</div>
+            <div class="tc-price-chg dn">-10.4% yesterday</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bias">
+            <span class="bias-badge bias-watch">EARNINGS BINARY — TONIGHT</span>
+            <div class="conv-wrap">
+              <div class="conv-bar"><div class="conv-fill" style="width:85%;background:#a78bfa"></div></div>
+              <span class="conv-score" style="color:#a78bfa">85</span>
+            </div>
+          </div>
+          <div class="tc-row">
+            <div><div class="tc-label">Support</div><div class="tc-val mono">$980 / $1,020</div></div>
+            <div><div class="tc-label">Resistance</div><div class="tc-val mono">$1,100 / $1,213</div></div>
+            <div><div class="tc-label">Implied move</div><div class="tc-val amber">±11% post-earnings</div></div>
+          </div>
+          <div class="tc-options">
+            <div class="tc-options-title">⚠ Options Risk — Read Before Trading</div>
+            <div class="opt-row">
+              <span class="opt-red">Front-month IV: 155% — extreme vol crush risk</span>
+              <span class="opt-amber">Straddle implies ±$132 move (~$1,172 base)</span>
+              <span class="opt-blue">Spread structures favoured over naked long options</span>
+            </div>
+          </div>
+          <div class="tc-why">Why selected: Earnings today after bell. Most important semi read of the week. Up 300% YTD, down 10% yesterday on KOSPI contagion — sitting at double support ($980/$1,020). Consensus: $34.66B revenue / $19.95 EPS. The beat is expected — guidance on HBM4 and Q4 margins is what actually moves the stock.</div>
+          <div class="tc-catalyst">🎯 Catalyst: Q3 FY2026 earnings after bell today. Conference call 4:30 PM ET.</div>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-stop">Stop: Below $980 (long shares)</span>
+          <span class="tc-target">Target: $1,213 (ATH) if strong guide</span>
+          <span class="tc-risk">⚠ Do NOT buy naked calls pre-earnings at 155% IV — use spread or wait for post-print reaction</span>
+        </div>
+      </div>
+
+      <!-- INTC -->
+      <div class="ticker-card" style="border-color:#a78bfa33">
+        <div class="tc-head" style="background:#110d1a">
+          <div class="tc-left">
+            <div>
+              <div class="tc-symbol">INTC</div>
+              <div class="tc-name">Intel Corporation</div>
+            </div>
+            <span class="tc-tier tier-dynamic">DYNAMIC</span>
+          </div>
+          <div class="tc-price">
+            <div class="tc-price-val">~$135</div>
+            <div class="tc-price-chg up">Unusual call flow Jun 23</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bias">
+            <span class="bias-badge bias-bull">BULLISH</span>
+            <div class="conv-wrap">
+              <div class="conv-bar"><div class="conv-fill" style="width:75%;background:#22c55e"></div></div>
+              <span class="conv-score up">75</span>
+            </div>
+          </div>
+          <div class="tc-row">
+            <div><div class="tc-label">Support</div><div class="tc-val mono">$125 / $120</div></div>
+            <div><div class="tc-label">Resistance</div><div class="tc-val mono">$140 / $147</div></div>
+            <div><div class="tc-label">Price target</div><div class="tc-val green">$147 (analyst)</div></div>
+          </div>
+          <div class="tc-options">
+            <div class="tc-options-title">Options Flow — Institutional Signal</div>
+            <div class="opt-row">
+              <span class="opt-green">47x normal OI on $87 calls expiring Fri Jun 26</span>
+              <span class="opt-green">ITM calls: $77, $87, $88 strikes — institutional buying</span>
+              <span class="opt-amber">Calls expire Friday — near-term catalyst expected</span>
+            </div>
+          </div>
+          <div class="tc-why">Why selected: Massive unusual institutional call buying on ITM strikes expiring this Friday. 47x normal open interest = someone knows something or is making a large directional bet before week-end. INTC is a turnaround story with $680B market cap and MU earnings tonight could lift the whole semi sector. Shares more appropriate than options here given Friday expiry premium.</div>
+          <div class="tc-catalyst">🎯 Catalyst: Unusual institutional ITM call flow. MU earnings halo effect if positive.</div>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-stop">Stop: Below $125</span>
+          <span class="tc-target">Target: $140–$147</span>
+          <span class="tc-risk">Risk: ~$10/share. Shares preferred over options this week.</span>
+        </div>
+      </div>
+
+      <!-- WEN -->
+      <div class="ticker-card" style="border-color:#a78bfa33">
+        <div class="tc-head" style="background:#110d1a">
+          <div class="tc-left">
+            <div>
+              <div class="tc-symbol">WEN</div>
+              <div class="tc-name">The Wendy's Company</div>
+            </div>
+            <span class="tc-tier tier-dynamic">DYNAMIC</span>
+          </div>
+          <div class="tc-price">
+            <div class="tc-price-val">~$6.26</div>
+            <div class="tc-price-chg up">+21.9% pre-market</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bias">
+            <span class="bias-badge bias-bull">MOMENTUM LONG</span>
+            <div class="conv-wrap">
+              <div class="conv-bar"><div class="conv-fill" style="width:65%;background:#22c55e"></div></div>
+              <span class="conv-score up">65</span>
+            </div>
+          </div>
+          <div class="tc-row">
+            <div><div class="tc-label">Pre-mkt price</div><div class="tc-val mono">~$7.63</div></div>
+            <div><div class="tc-label">Support</div><div class="tc-val mono">$6.00 / $5.50</div></div>
+            <div><div class="tc-label">Volume</div><div class="tc-val green">4M shares pre-mkt</div></div>
+          </div>
+          <div class="tc-options">
+            <div class="tc-options-title">Trade Approach</div>
+            <div class="opt-row">
+              <span class="opt-green">Shares: momentum scalp on open</span>
+              <span class="opt-amber">Watch first 5-min candle for direction</span>
+              <span class="opt-red">Short squeeze — do not chase extended opens</span>
+            </div>
+          </div>
+          <div class="tc-why">Why selected: +21.9% pre-market on 4M shares — social media short squeeze building. Retail momentum play. Fits your momentum scalp style. Price is affordable ($6–$8 range). Options available but spread likely wide on low-priced stock. Shares are the play here — in at open, tight stop, take profit quickly.</div>
+          <div class="tc-catalyst">🎯 Catalyst: Social media short squeeze momentum. No fundamental catalyst.</div>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-stop">Stop: Below opening 5-min low</span>
+          <span class="tc-target">Target: +5–10% from open — scalp, don't hold</span>
+          <span class="tc-risk">Risk: Squeeze fades fast. Size small. No overnight hold.</span>
+        </div>
+      </div>
+
+      <!-- VTAK -->
+      <div class="ticker-card" style="border-color:#a78bfa33">
+        <div class="tc-head" style="background:#110d1a">
+          <div class="tc-left">
+            <div>
+              <div class="tc-symbol">VTAK</div>
+              <div class="tc-name">Catheter Precision Inc.</div>
+            </div>
+            <span class="tc-tier tier-dynamic">DYNAMIC</span>
+          </div>
+          <div class="tc-price">
+            <div class="tc-price-val">Gapping +65%</div>
+            <div class="tc-price-chg up">32.5M shares pre-mkt · 28x avg vol</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bias">
+            <span class="bias-badge bias-bull">MOMENTUM — EXTREME CAUTION</span>
+            <div class="conv-wrap">
+              <div class="conv-bar"><div class="conv-fill" style="width:50%;background:#f59e0b"></div></div>
+              <span class="conv-score nu">50</span>
+            </div>
+          </div>
+          <div class="tc-row">
+            <div><div class="tc-label">Catalyst</div><div class="tc-val green">Strategic partnership update</div></div>
+            <div><div class="tc-label">Volume</div><div class="tc-val green">28x daily average</div></div>
+            <div><div class="tc-label">Float</div><div class="tc-val amber">Small float — volatile</div></div>
+          </div>
+          <div class="tc-options">
+            <div class="tc-options-title">Trade Approach — Shares Only</div>
+            <div class="opt-row">
+              <span class="opt-red">Options likely illiquid / wide spread</span>
+              <span class="opt-green">Shares: small size, tight stop, scalp only</span>
+              <span class="opt-amber">Watch for halt risk on extreme moves</span>
+            </div>
+          </div>
+          <div class="tc-why">Why selected: 28x average volume pre-market + 65% gap on strategic partnership catalyst. Fits momentum scalp criteria perfectly. Small float = violent moves both ways. This is a risk-defined shares play only — in on momentum continuation, out same session. Not a hold.</div>
+          <div class="tc-catalyst">🎯 Catalyst: Strategic partnership update — small-cap momentum / news gap.</div>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-stop">Stop: Below VWAP at open</span>
+          <span class="tc-target">Target: Trail stop — let momentum run</span>
+          <span class="tc-risk">⚠ Halt risk. Max 1–2% portfolio allocation. Scalp only.</span>
+        </div>
+      </div>
+
+      <!-- CBRS -->
+      <div class="ticker-card" style="border-color:#a78bfa33">
+        <div class="tc-head" style="background:#110d1a">
+          <div class="tc-left">
+            <div>
+              <div class="tc-symbol">CBRS</div>
+              <div class="tc-name">Cerebras Systems Inc.</div>
+            </div>
+            <span class="tc-tier tier-dynamic">DYNAMIC</span>
+          </div>
+          <div class="tc-price">
+            <div class="tc-price-val">~$198</div>
+            <div class="tc-price-chg dn">-12.5% pre-market</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bias">
+            <span class="bias-badge bias-bear">BEARISH — POST-EARNINGS</span>
+            <div class="conv-wrap">
+              <div class="conv-bar"><div class="conv-fill" style="width:70%;background:#ef4444"></div></div>
+              <span class="conv-score dn">70</span>
+            </div>
+          </div>
+          <div class="tc-row">
+            <div><div class="tc-label">Yesterday close</div><div class="tc-val mono">$226.72</div></div>
+            <div><div class="tc-label">Revenue growth</div><div class="tc-val green">+94% YoY</div></div>
+            <div><div class="tc-label">Problem</div><div class="tc-val red">Shrinking gross margins</div></div>
+          </div>
+          <div class="tc-options">
+            <div class="tc-options-title">Trade Approach</div>
+            <div class="opt-row">
+              <span class="opt-red">Puts: if bounce to $210–$215 fades</span>
+              <span class="opt-amber">First IPO earnings = price discovery, volatile</span>
+              <span class="opt-blue">Wait for open — gap fills are common on post-earnings drops</span>
+            </div>
+          </div>
+          <div class="tc-why">Why selected: First post-IPO earnings. Down -12.5% despite 94% revenue growth — market punishing margin guidance (hardware leasing costs for $20B OpenAI deal compressing margins). Potential dead-cat bounce into $210–$215 resistance, then continuation lower. Also watch for gap-fill bounce on open — IPO-era stocks often violently overshoot down then partially recover.</div>
+          <div class="tc-catalyst">🎯 Catalyst: First post-IPO earnings — margin guidance miss despite strong revenue growth.</div>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-stop">Stop: Above $215 (short) / Below $190 (long bounce)</span>
+          <span class="tc-target">Puts target: $180–$185 · Bounce target: $215</span>
+          <span class="tc-risk">Risk: High — first IPO earnings, price discovery volatile</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- SCREENING TAB -->
+<div class="tab-panel" id="tab-screen">
+  <div class="section">
+    <div class="section-title">AI Screening Methodology — How Today's Picks Were Selected</div>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-title">Stage 1 — Volume Filter</div>
+        <ul class="method-list">
+          <li>Avg daily volume &gt;1M shares</li>
+          <li>Pre-market volume ≥2x daily avg</li>
+          <li>Not OTC / pink sheet</li>
+          <li>Price &gt;$1 (no sub-penny)</li>
+        </ul>
+      </div>
+      <div class="method-card">
+        <div class="method-title">Stage 2 — Catalyst Check</div>
+        <ul class="method-list">
+          <li>Earnings today (before/after)</li>
+          <li>FDA / regulatory catalyst</li>
+          <li>Unusual options flow ≥10x OI</li>
+          <li>News gap ≥5% pre-market</li>
+          <li class="warn">No catalyst = not selected</li>
+        </ul>
+      </div>
+      <div class="method-card">
+        <div class="method-title">Stage 3 — Options Check</div>
+        <ul class="method-list">
+          <li>OI &gt;500 contracts minimum</li>
+          <li>Bid/ask spread assessed</li>
+          <li>IV vs HV ratio checked</li>
+          <li class="warn">High IV = spread structure flagged</li>
+          <li class="fail">Naked long at &gt;100% IV = flagged</li>
+        </ul>
+      </div>
+      <div class="method-card">
+        <div class="method-title">Stage 4 — Risk Filter</div>
+        <ul class="method-list">
+          <li>Structure-based stop identified</li>
+          <li>Risk-to-stop ≤ ~$40–50/contract</li>
+          <li>OR shares with defined stop level</li>
+          <li>Directional bias identifiable</li>
+          <li class="fail">No edge = not selected</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Today's Screened Results — Pass / Fail</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a">Ticker</th>
+          <th style="text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a">Volume</th>
+          <th style="text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a">Catalyst</th>
+          <th style="text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a">Options</th>
+          <th style="text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a">Risk</th>
+          <th style="text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a">Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #0d1629;font-weight:700;color:#fff">MU</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ 54M avg / active</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Earnings tonight</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#f59e0b">⚠ IV 155% — spread only</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Shares defined stop</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629"><span style="color:#22c55e;font-weight:700">SELECTED</span></td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #0d1629;font-weight:700;color:#fff">INTC</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ High avg vol</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ 47x unusual call flow</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ ITM calls active</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ ~$10 risk/share</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629"><span style="color:#22c55e;font-weight:700">SELECTED</span></td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #0d1629;font-weight:700;color:#fff">WEN</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ 4M pre-mkt</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Short squeeze momentum</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#f59e0b">⚠ Wide spreads on low-price stock</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Shares scalp</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629"><span style="color:#22c55e;font-weight:700">SELECTED</span></td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #0d1629;font-weight:700;color:#fff">VTAK</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ 28x avg volume</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Partnership catalyst</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#ef4444">✗ Options likely illiquid</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Shares only / VWAP stop</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629"><span style="color:#22c55e;font-weight:700">SELECTED</span></td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #0d1629;font-weight:700;color:#fff">CBRS</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Trending / IPO</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Post-earnings reaction</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#f59e0b">⚠ Price discovery — assess at open</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Clear gap structure</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629"><span style="color:#22c55e;font-weight:700">SELECTED</span></td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #0d1629;font-weight:700;color:#fff">QNRX</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ 107x vol spike</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#f59e0b">⚠ Unclear catalyst</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#ef4444">✗ Options illiquid pharma small-cap</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#ef4444">✗ No defined stop level</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629"><span style="color:#ef4444;font-weight:700">EXCLUDED</span></td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #0d1629;font-weight:700;color:#fff">FDX</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ High vol / -3.5% yesterday</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#22c55e">✓ Earnings today</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#f59e0b">⚠ High IV pre-earnings</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629;color:#f59e0b">⚠ Stock price ~$317 — premium cost</td><td style="padding:6px 10px;border-bottom:1px solid #0d1629"><span style="color:#f59e0b;font-weight:700">MONITOR</span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:8px;font-size:10px;color:#475569">QNRX excluded: extreme vol spike but no clear catalyst and illiquid options = no edge. FDX monitoring: earnings tonight but high premium cost may exceed risk parameters — reassess post-open.</div>
+  </div>
+</div>
+
+<!-- MACRO TAB -->
+<div class="tab-panel" id="tab-macro">
+  <div class="section">
+    <div class="section-title">Market Context — Anchoring the Universe</div>
+    <div class="macro-grid">
+      <div class="macro-card"><div class="mc-label">S&P 500</div><div class="mc-val dn">7,365</div><div class="mc-sub">-1.44% yesterday · Tech-led</div></div>
+      <div class="macro-card"><div class="mc-label">Nasdaq</div><div class="mc-val dn">25,587</div><div class="mc-sub">-2.21% · Semi contagion</div></div>
+      <div class="macro-card"><div class="mc-label">VIX</div><div class="mc-val dn">19.49</div><div class="mc-sub">+12.8% spike · Watch 20</div></div>
+      <div class="macro-card"><div class="mc-label">10Y Yield</div><div class="mc-val dn">4.499%</div><div class="mc-sub">2-week high · Rate hike risk</div></div>
+      <div class="macro-card"><div class="mc-label">2Y Yield</div><div class="mc-val dn">4.205%</div><div class="mc-sub">Highest since Feb 2025</div></div>
+      <div class="macro-card"><div class="mc-label">Sep Hike Prob</div><div class="mc-val dn">~68%</div><div class="mc-sub">Up from 29% pre-FOMC</div></div>
+      <div class="macro-card"><div class="mc-label">WTI Crude</div><div class="mc-val nu">$74.15</div><div class="mc-sub">Iran deal softening oil</div></div>
+      <div class="macro-card"><div class="mc-label">Gold</div><div class="mc-val dn">$4,209</div><div class="mc-sub">Near 2-week low · USD bid</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Key Theme Today</div>
+    <div style="background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:14px;font-size:13px;color:#94a3b8;line-height:1.85">
+      <p style="margin-bottom:10px">Two binary catalysts dominate today: <strong style="color:#fff">PCE inflation at 08:30 ET</strong> and <strong style="color:#fff">Micron earnings after the bell</strong>. Everything else is secondary noise. The setup is a classic squeeze-point: tech sold off hard yesterday but 60% of S&P 500 stocks actually advanced — the damage was concentrated in semis. If PCE comes in hot, yields spike, VIX breaks 20, and the sell-off extends. If PCE is soft, there's a relief bounce — but it may be short-lived ahead of MU earnings.</p>
+      <p style="margin-bottom:0">The semi sector is the fulcrum. MU up on strong guidance = INTC, QQQ, and the broader tech sector bounce. MU guides cautiously = second leg down, QQQ tests $701, VIX spikes toward its June 10 high of 22.22. Size all positions accordingly — today is a high-conviction setup day but also a high-volatility day. Defined risk only.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR TAB -->
+<div class="tab-panel" id="tab-calendar">
+  <div class="section">
+    <div class="section-title">Catalyst Calendar — Today + Next 48h</div>
+    <div class="cal-list">
+
+      <div class="cal-item">
+        <div class="cal-imp high"></div>
+        <div class="cal-time">08:30 ET<br>Today</div>
+        <div class="cal-ticker">MACRO</div>
+        <div>
+          <div class="cal-desc">PCE Price Index — May (Headline + Core m/m)</div>
+          <div class="cal-sub">Forecast: +0.5% headline / +0.3% core — Fed's preferred inflation gauge</div>
+          <div class="cal-alert">⚠ Sets the intraday tone for everything. Hot = extend shorts, avoid longs. Soft = buy the dip selectively.</div>
+        </div>
+      </div>
+
+      <div class="cal-item">
+        <div class="cal-imp high"></div>
+        <div class="cal-time">After Bell<br>Today ~4:30PM</div>
+        <div class="cal-ticker">MU</div>
+        <div>
+          <div class="cal-desc">Micron Technology — Q3 FY2026 Earnings</div>
+          <div class="cal-sub">Consensus: $34.66B revenue / $19.95 EPS · Options imply ±11% move · IV 155%</div>
+          <div class="cal-alert">⚠ Do NOT hold naked long options into this print. Use spreads or trade shares. The beat is expected — guidance is what moves the stock.</div>
+        </div>
+      </div>
+
+      <div class="cal-item">
+        <div class="cal-imp high"></div>
+        <div class="cal-time">After Bell<br>Today</div>
+        <div class="cal-ticker">CBRS</div>
+        <div>
+          <div class="cal-desc">Cerebras Systems — Already reported last night</div>
+          <div class="cal-sub">Revenue +94% YoY but margin guidance miss → -12.5% pre-market</div>
+          <div class="cal-alert">⚠ Trade the reaction at open — watch for bounce to $210–$215 or continuation lower.</div>
+        </div>
+      </div>
+
+      <div class="cal-item">
+        <div class="cal-imp med"></div>
+        <div class="cal-time">After Bell<br>Today</div>
+        <div class="cal-ticker">FDX</div>
+        <div>
+          <div class="cal-desc">FedEx — Q4 FY2026 Earnings</div>
+          <div class="cal-sub">Global logistics bellwether — read on trade volumes and macro demand</div>
+        </div>
+      </div>
+
+      <div class="cal-item">
+        <div class="cal-imp med"></div>
+        <div class="cal-time">08:30 ET<br>Thu Jun 25</div>
+        <div class="cal-ticker">MACRO</div>
+        <div>
+          <div class="cal-desc">Initial Jobless Claims + GDP Final Q1 2026</div>
+          <div class="cal-sub">Labour market + backward-looking growth read</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ANALYST NOTE TAB -->
+<div class="tab-panel" id="tab-analyst">
+  <div class="section">
+    <div class="section-title">Senior Analyst Note — Equities</div>
+    <div class="analyst-box">
+      <div class="analyst-label">TPTraders Senior Equities Analyst — June 24, 2026</div>
+      <div class="analyst-text">
+        <p>Today's universe was screened from live pre-market data and comes down to two themes: <strong>the semi sector earnings binary</strong> and <strong>momentum plays on social-driven names</strong>. The macro overlay — PCE at 08:30 — determines which of those plays works and which gets stopped out before it has a chance to breathe. That sequencing matters. Do not enter new positions before 08:30. Let the number print. Then act.</p>
+        <p><strong>MU is the most important ticker on today's list, but also the most dangerous options trade.</strong> Front-month IV at 155% means a straddle costs roughly $132 on a stock at ~$1,057. You need an 11%+ move just to break even on a long straddle — and vol crush the morning after guarantees you lose theta regardless of direction. If you want exposure to MU earnings tonight, the right structure is a bull call spread (if bullish) or bear put spread (if bearish) — not naked long calls or puts. Better still: wait for the post-earnings reaction in pre-market tomorrow and trade the gap. You lose some of the move but you trade with direction confirmed and IV collapsing, not against you.</p>
+        <p><strong>INTC is the cleanest trade on the list today.</strong> Institutional money bought ITM calls at 47x normal open interest yesterday — that's not retail. It's someone with conviction into a near-term catalyst. The turnaround thesis is intact, analyst price target is $147, and a MU beat tonight creates a sector halo that lifts INTC. Shares are the vehicle here — size appropriately, stop below $125, and let it work. This is not a scalp — it's a 2–3 day hold if the setup holds.</p>
+        <p><strong>WEN and VTAK are momentum scalp plays, not investments.</strong> They made the list because they meet the volume and catalyst criteria, not because there's a fundamental case. Trade these in the first 30–60 minutes only, use VWAP as your anchor, and take profit before the momentum fades. No overnight holds on momentum plays without a confirmed thesis beyond social media sentiment.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Equities Brief · TPTraders Intelligence Hub · 2026-06-24 · NOT FINANCIAL ADVICE<br>
+<a href="https://cbell0920.github.io/tptraders-hub" style="color:#1e3a5f">← TPTraders Hub</a>
+</div>
+
+<script>
+function switchTab(name){
+  const names=['tickers','screen','macro','calendar','analyst'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+</script>
+</body>
+</html>

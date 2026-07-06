@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Equities Morning Brief — 2026-06-25 — TPTraders</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e1a;color:#e2e8f0;font-family:'Inter',system-ui,sans-serif;padding:20px;line-height:1.6}
+a{color:#22c55e;text-decoration:none}a:hover{text-decoration:underline}
+.hdr{background:#0d1221;border:1px solid #1e2d4a;border-radius:12px;padding:16px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.title{font-size:20px;font-weight:700;color:#fff}
+.sub{font-size:12px;color:#64748b;margin-top:3px}
+.hub-link{color:#22c55e;font-size:12px;font-weight:600;border:1px solid #22c55e33;padding:5px 12px;border-radius:6px}
+.hub-link:hover{background:#22c55e14;text-decoration:none}
+.warn{background:#0f1a14;border:1px solid #22c55e33;border-radius:8px;padding:8px 16px;font-size:11px;color:#4ade80;margin-bottom:18px}
+.section{margin-bottom:26px}
+.section-title{font-size:10px;font-weight:700;color:#22c55e;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #1e2d4a}
+.regime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.regime-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px;text-align:center}
+.rc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.rc-value{font-size:15px;font-weight:700;color:#fff}
+.rc-sub{font-size:10px;color:#64748b;margin-top:4px;line-height:1.4}
+.macro-text{font-size:13px;color:#94a3b8;line-height:1.85}
+.macro-text p{margin-bottom:12px}
+.macro-text strong{color:#e2e8f0}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a}
+td{padding:7px 10px;border-bottom:1px solid #0d1629;vertical-align:middle}
+tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
+.ticker{font-weight:700;color:#fff;font-family:'Courier New',monospace;font-size:13px}
+.bull{color:#22c55e;font-weight:700}.bear{color:#ef4444;font-weight:700}.neu{color:#f59e0b;font-weight:700}
+.price{font-family:'Courier New',monospace;color:#e2e8f0;font-size:12px}
+.level{font-family:'Courier New',monospace;color:#f59e0b;font-size:11px}
+.driver{color:#64748b;font-size:11px}
+.conv-wrap{display:flex;align-items:center;gap:6px}
+.conv-bar{height:4px;border-radius:2px;background:#1e2d4a;width:60px;position:relative}
+.conv-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0}
+.conv-score{font-family:'Courier New',monospace;font-size:10px}
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px}
+.cal-imp{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:30px}
+.cal-imp.high{background:#ef4444}.cal-imp.med{background:#f59e0b}.cal-imp.low{background:#22c55e}
+.cal-time{font-size:10px;color:#64748b;min-width:65px;font-family:'Courier New',monospace}
+.cal-ticker{font-size:10px;font-weight:700;color:#22c55e;min-width:40px}
+.cal-desc{font-size:12px;color:#e2e8f0;font-weight:500}
+.cal-sub{font-size:10px;color:#64748b;margin-top:2px}
+.cal-alert{font-size:11px;color:#f59e0b;margin-top:2px;font-style:italic}
+.analyst-box{background:#0d1629;border:1px solid #22c55e22;border-left:3px solid #22c55e;border-radius:0 8px 8px 0;padding:16px 18px}
+.analyst-label{font-size:9px;color:#22c55e;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
+.analyst-text{font-size:13px;color:#cbd5e1;line-height:1.85}
+.analyst-text p{margin-bottom:12px}
+.analyst-text p:last-child{margin-bottom:0}
+.analyst-text strong{color:#fff}
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:.5px}
+.badge-bull{background:#0a2d0a;color:#22c55e;border:1px solid #22c55e33}
+.badge-bear{background:#2d0a0a;color:#ef4444;border:1px solid #ef444433}
+.badge-neu{background:#2d2000;color:#f59e0b;border:1px solid #f59e0b33}
+.badge-watch{background:#1a1a2d;color:#a78bfa;border:1px solid #a78bfa33}
+.tier-label{font-size:9px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.1em;padding:12px 0 6px;margin-top:4px}
+.footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
+.tabs{display:flex;gap:0;border-bottom:1px solid #1e2d4a;margin-bottom:16px;overflow-x:auto}
+.tab{padding:8px 16px;font-size:11px;font-weight:600;color:#475569;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;user-select:none}
+.tab:hover{color:#94a3b8}.tab.active{color:#22c55e;border-bottom-color:#22c55e}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.journal-btn{display:inline-flex;align-items:center;gap:6px;background:#22c55e18;border:1px solid #22c55e44;color:#22c55e;font-size:10px;font-weight:600;padding:4px 10px;border-radius:4px;cursor:pointer;text-decoration:none;white-space:nowrap;font-family:'Courier New',monospace}
+.journal-btn:hover{background:#22c55e28;text-decoration:none}
+@media(max-width:600px){body{padding:12px}.hdr{flex-direction:column;align-items:flex-start}.regime-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <div class="title">EQUITIES/BRIEF 2026-06-25 — TPTraders</div>
+    <div class="sub">Generated Thu, 25 Jun 2026 | Pre-market 6:25 AM ET | Powered by TPTraders Intelligence</div>
+  </div>
+  <a class="hub-link" href="https://cbell0920.github.io/tptraders-hub">← Hub</a>
+</div>
+<div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only.</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('tickers')">Tickers</div>
+  <div class="tab" onclick="switchTab('screening')">Screening</div>
+  <div class="tab" onclick="switchTab('macro')">Macro Context</div>
+  <div class="tab" onclick="switchTab('calendar')">Calendar</div>
+  <div class="tab" onclick="switchTab('analyst')">Analyst Note</div>
+</div>
+
+<!-- TICKERS -->
+<div class="tab-panel active" id="tab-tickers">
+
+  <div class="section">
+    <div class="section-title">Market Regime</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">Regime</div><div class="rc-value" style="color:#f59e0b">MIXED</div><div class="rc-sub">AI relief rally vs PCE uncertainty</div></div>
+      <div class="regime-card"><div class="rc-label">SPY</div><div class="rc-value">$739</div><div class="rc-sub">Futures +0.7% · Micron-led bounce</div></div>
+      <div class="regime-card"><div class="rc-label">QQQ</div><div class="rc-value">$715</div><div class="rc-sub">Futures +2.1% · Nasdaq led by semis</div></div>
+      <div class="regime-card"><div class="rc-label">VIX</div><div class="rc-value" style="color:#f59e0b">18.24</div><div class="rc-sub">Prev close 19.49 → easing on Micron news</div></div>
+    </div>
+  </div>
+
+  <!-- ANCHORS -->
+  <div class="tier-label">▸ Anchors — Market Direction Indicators</div>
+  <table>
+    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Key Level</th><th>Signal</th><th>Conviction</th><th>Notes</th><th></th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ticker">SPY</td>
+        <td class="price">$739</td>
+        <td><span class="neu">NEUTRAL</span></td>
+        <td class="level">$735 support</td>
+        <td style="font-size:11px;color:#94a3b8">Wait for PCE</td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:55%;background:#f59e0b"></div></div><span class="conv-score" style="color:#f59e0b">55</span></div></td>
+        <td class="driver">Futures +0.7% on Micron. PCE at 8:30 is the real test. S&P closed -0.10% yesterday.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22SPY%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22MIXED%22%2C%22vix%22%3A18.24%2C%22catalyst%22%3A%22PCE+data+8%3A30+ET+today%22%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">QQQ</td>
+        <td class="price">$715</td>
+        <td><span class="bull">BULLISH</span></td>
+        <td class="level">$700 support</td>
+        <td style="font-size:11px;color:#22c55e">Semis leading</td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:68%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">68</span></div></td>
+        <td class="driver">Nasdaq futures +2.1% pre-market. Micron +17% driving sector. Leadership narrowing to semis.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22QQQ%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22regime%22%3A%22MIXED%22%2C%22vix%22%3A18.24%2C%22catalyst%22%3A%22Micron+earnings+lift+semis%22%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">VIX</td>
+        <td class="price">18.24</td>
+        <td><span class="bull">EASING</span></td>
+        <td class="level">20 = elevated</td>
+        <td style="font-size:11px;color:#22c55e">Falling on Micron</td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:60%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">60</span></div></td>
+        <td class="driver">Dropped from 19.49 prev close. Below 20 = options premiums normalising. PCE could spike it back.</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- BELLWETHERS -->
+  <div class="tier-label">▸ Bellwethers — Educational Reference (always present)</div>
+  <table>
+    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Conditions</th><th>Notes</th><th></th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ticker">AAPL</td>
+        <td class="price">~$215</td>
+        <td><span class="neu">NEUTRAL</span></td>
+        <td style="font-size:11px;color:#64748b">☁ Unfavorable: rising rates headwind for growth · USD strength</td>
+        <td class="driver">No near-term catalyst. Watch for reaction to PCE data and how it repositions vs rates narrative.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22AAPL%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22MIXED%22%2C%22vix%22%3A18.24%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">NVDA</td>
+        <td class="price">~$145</td>
+        <td><span class="bull">BULLISH</span></td>
+        <td style="font-size:11px;color:#22c55e">✓ Favorable: Micron earnings validate AI spend · data center demand structural</td>
+        <td class="driver">Micron's blowout results directly validate NVDA's AI thesis. Memory chip demand = GPU demand follows.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22NVDA%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22regime%22%3A%22MIXED%22%2C%22catalyst%22%3A%22Micron+AI+validation%22%2C%22vix%22%3A18.24%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">MSFT</td>
+        <td class="price">~$465</td>
+        <td><span class="neu">NEUTRAL</span></td>
+        <td style="font-size:11px;color:#64748b">☁ Unfavorable: rates headwind · software rotation out · semis taking leadership</td>
+        <td class="driver">Money rotating into semis away from software. MSFT consolidating near highs.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22MSFT%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22MIXED%22%2C%22vix%22%3A18.24%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">GOOGL</td>
+        <td class="price">~$198</td>
+        <td><span class="neu">NEUTRAL</span></td>
+        <td style="font-size:11px;color:#64748b">☁ Unfavorable: ad spend sensitivity · rates headwind for growth multiples</td>
+        <td class="driver">No near-term catalyst. Watching AI capex narrative for read-through.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GOOGL%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22regime%22%3A%22MIXED%22%2C%22vix%22%3A18.24%7D" target="_blank">→ Journal</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- DYNAMIC PICKS -->
+  <div class="tier-label">▸ Dynamic Picks — Today's AI-Screened Setups</div>
+  <table>
+    <thead><tr><th>Ticker</th><th>Price</th><th>Bias</th><th>Stop</th><th>T1</th><th>Type</th><th>Conviction</th><th>Catalyst</th><th></th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ticker">MU</td>
+        <td class="price">~$1,048</td>
+        <td><span class="bull">BULLISH</span></td>
+        <td class="level">$980</td>
+        <td class="level">$1,150</td>
+        <td><span class="badge badge-bull">LONG CALLS</span></td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:88%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">88</span></div></td>
+        <td class="driver">Blowout Q3 earnings. +17–18% pre-market. AI memory chip demand surging. Price target raised to $1,123.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22MU%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%221048%22%2C%22stop%22%3A%22980%22%2C%22t1%22%3A%221150%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22Blowout+Q3+earnings+%2B17%25+pre-market%22%2C%22regime%22%3A%22MIXED%22%2C%22conviction%22%3A88%2C%22vix%22%3A18.24%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">QCOM</td>
+        <td class="price">~$185</td>
+        <td><span class="bull">BULLISH</span></td>
+        <td class="level">$175</td>
+        <td class="level">$205</td>
+        <td><span class="badge badge-bull">LONG CALLS</span></td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:75%;background:#22c55e"></div></div><span class="conv-score" style="color:#22c55e">75</span></div></td>
+        <td class="driver">Announced move into data center chips/servers. AI infrastructure expansion play. Semiconductor sector momentum.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22QCOM%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22185%22%2C%22stop%22%3A%22175%22%2C%22t1%22%3A%22205%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22Data+center+expansion+announced%22%2C%22regime%22%3A%22MIXED%22%2C%22conviction%22%3A75%2C%22vix%22%3A18.24%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">ONDS</td>
+        <td class="price">~$3.50</td>
+        <td><span class="neu">WATCH</span></td>
+        <td class="level">$3.10</td>
+        <td class="level">$4.20</td>
+        <td><span class="badge badge-watch">SPECULATIVE</span></td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:45%;background:#a78bfa"></div></div><span class="conv-score" style="color:#a78bfa">45</span></div></td>
+        <td class="driver">Small-cap speculative position. Watch for volume catalyst. High beta to risk sentiment. PCE data today = binary for ONDS.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22ONDS%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22NEUTRAL%22%2C%22key_level%22%3A%223.50%22%2C%22stop%22%3A%223.10%22%2C%22t1%22%3A%224.20%22%2C%22catalyst%22%3A%22Small-cap+speculative+%E2%80%94+watch+volume%22%2C%22regime%22%3A%22MIXED%22%2C%22conviction%22%3A45%2C%22vix%22%3A18.24%7D" target="_blank">→ Journal</a></td>
+      </tr>
+      <tr>
+        <td class="ticker">GLD</td>
+        <td class="price">$367</td>
+        <td><span class="bear">BEARISH</span></td>
+        <td class="level">$375</td>
+        <td class="level">$345</td>
+        <td><span class="badge badge-bear">LONG PUTS</span></td>
+        <td><div class="conv-wrap"><div class="conv-bar"><div class="conv-fill" style="width:72%;background:#ef4444"></div></div><span class="conv-score" style="color:#ef4444">72</span></div></td>
+        <td class="driver">Gold broke below $4,000 for first time since Nov 2025. USD strength + 68% Sep hike probability = bearish gold. Bearish trendline intact.</td>
+        <td><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GLD%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22key_level%22%3A%22367%22%2C%22stop%22%3A%22375%22%2C%22t1%22%3A%22345%22%2C%22call_put%22%3A%22Put%22%2C%22catalyst%22%3A%22Gold+broke+below+%244%2C000+%E2%80%94+USD+strength+%2B+rate+hike+pricing%22%2C%22regime%22%3A%22MIXED%22%2C%22conviction%22%3A72%2C%22vix%22%3A18.24%7D" target="_blank">→ Journal</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SCREENING -->
+<div class="tab-panel" id="tab-screening">
+  <div class="section">
+    <div class="section-title">Screening Criteria — Today's Picks</div>
+    <div class="macro-text">
+      <p><strong>Screening filters applied:</strong> Pre-market volume ≥2x average · Average daily vol >1M · Catalyst present today · Options OI >500 · Risk-to-stop ≤$40–50/contract equivalent · Styles: long calls, long puts, directional shares, momentum scalps</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Today's Setup Rationale</div>
+    <div class="macro-text">
+      <p><strong>MU (Micron Technology)</strong> — Strongest setup of the day. Blowout Q3 earnings with revenue and EPS well above consensus. AI data center memory demand described as "surging." Forward guidance strong. Shares +17–18% pre-market on volume multiples of average. This is a gap-and-go setup with institutional validation. The question is whether to chase the gap or wait for a pullback to the $1,020–1,040 zone for a clean entry. Risk: PCE data at 8:30 could kill risk sentiment broadly.</p>
+      <p><strong>QCOM (Qualcomm)</strong> — Announced expansion into data center chips and servers. Riding Micron's coattails on AI infrastructure theme. Sympathy play with cleaner entry levels than MU. Less gap risk. Volume expected to be elevated. Stop below $175 (prior support).</p>
+      <p><strong>GLD (Gold ETF)</strong> — Macro short. Gold's break below $4,000 driven by USD strength and rising real rates. Bearish trendline intact since March. RSI near oversold but trend is down. PCE data today could extend the move. Options play: buy puts on any bounce toward $370–372.</p>
+      <p><strong>ONDS (Ondas Holdings)</strong> — Small-cap speculative. No new catalyst today but watching for volume. Binary outcome vs PCE data. Only for traders comfortable with small-cap risk. Size appropriately.</p>
+      <p><strong>Notable screens not selected today:</strong> WMT, VZ, T, INTC — no fresh catalysts. INTC still under pressure from structural concerns. VZ/T dividend names tend to underperform in rising rate environment.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MACRO CONTEXT -->
+<div class="tab-panel" id="tab-macro">
+  <div class="section">
+    <div class="section-title">Macro Context</div>
+    <div class="macro-text">
+      <p>Two themes dominate pre-market on June 25: <strong>Micron's blowout AI earnings</strong> and <strong>PCE inflation data at 8:30 ET</strong>. These two forces are somewhat in tension. Micron's results are unambiguously positive for AI-linked equities and semiconductor names. PCE data has the power to override any earnings-driven optimism if it comes in hot — with 68% probability of a September rate hike already priced, a hot print could spike VIX back above 20 and pressure growth stocks.</p>
+      <p><strong>The rates environment remains the primary headwind for equities.</strong> The Fed's hawkish hold on June 17 under Kevin Warsh shifted the market's rate path expectations dramatically. Markets had been pricing rate cuts; they are now pricing rate hikes. This is fundamentally bearish for growth multiples. The Nasdaq has pulled back from its June 2 all-time high of QQQ $748.65 by approximately 5%, setting up today's Micron-driven attempt to stabilize.</p>
+      <p><strong>S&P 500 futures +0.7%, Nasdaq futures +2.1%</strong> in pre-market. The Micron effect is concentrated in semiconductors — NVDA, AMD, and the broader Philadelphia Semiconductor Index should lead. The question for the broader market is whether this bounce is sustained or whether it fades into PCE data. Market strategists cited in the morning press argue the recent tech pullback has actually broadened market leadership into industrials and financials, which is constructive.</p>
+      <p><strong>Key levels to watch:</strong> SPY $735 as near-term support. SPY $752 as all-time high resistance. QQQ $700 as major support. VIX 20 as the line between normal and elevated fear. DXY 101.3 — dollar strength is the macro headwind that everything else trades around.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Rates & Dollar Context</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">10-Year Yield</div><div class="rc-value">4.408%</div><div class="rc-sub">Rising · rates headwind for growth</div></div>
+      <div class="regime-card"><div class="rc-label">DXY</div><div class="rc-value" style="color:#22c55e">101.3</div><div class="rc-sub">Surging past resistance · highest 1+ year</div></div>
+      <div class="regime-card"><div class="rc-label">Fed Rate</div><div class="rc-value">3.50–3.75%</div><div class="rc-sub">Sep hike 68% · Warsh hawkish</div></div>
+      <div class="regime-card"><div class="rc-label">WTI Crude</div><div class="rc-value" style="color:#ef4444">$69.45</div><div class="rc-sub">Pre-war levels · disinflationary</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="tab-panel" id="tab-calendar">
+  <div class="section">
+    <div class="section-title">Earnings & Economic Calendar</div>
+    <div class="cal-list">
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">08:30 ET<br>Today</div><div class="cal-ticker">USD</div><div><div class="cal-desc">PCE Price Index (May) — Headline & Core</div><div class="cal-sub">Forecast: Headline +0.5% m/m · Core +0.3% m/m · YoY core 3.4%</div><div class="cal-alert">⚠ Market-moving event. Hot print = extend USD/rate hike trades. Soft miss = buy semis dip.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Pre-market<br>Today</div><div class="cal-ticker">MU</div><div><div class="cal-desc">Micron Q3 FY2026 Earnings — ALREADY REPORTED</div><div class="cal-sub">Result: Massive beat · Revenue and EPS well above consensus · AI memory demand surging</div><div class="cal-alert">✓ Shares +17–18% pre-market · Price target raised to $1,123</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">08:30 ET<br>Today</div><div class="cal-ticker">USD</div><div><div class="cal-desc">Initial Jobless Claims (weekly)</div><div class="cal-sub">Labour market health secondary to PCE today</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">All day<br>Today</div><div class="cal-ticker">FED</div><div><div class="cal-desc">Fed Speakers</div><div class="cal-sub">Any commentary on PCE data or rate path will be market moving</div></div></div>
+      <div class="cal-item"><div class="cal-imp low"></div><div class="cal-time">Fri Jun 26</div><div class="cal-ticker">USD</div><div><div class="cal-desc">University of Michigan Consumer Sentiment — Final</div><div class="cal-sub">Low impact · secondary read on consumer</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">Jul 29</div><div class="cal-ticker">FED</div><div><div class="cal-desc">Next FOMC Meeting</div><div class="cal-sub">September hike path will be influenced by PCE today and jobs data in July</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYST NOTE -->
+<div class="tab-panel" id="tab-analyst">
+  <div class="section">
+    <div class="section-title">Senior Analyst Note</div>
+    <div class="analyst-box">
+      <div class="analyst-label">TPTraders Senior Equities Analyst — June 25, 2026</div>
+      <div class="analyst-text">
+        <p><strong>Micron delivered a generational earnings beat and it matters.</strong> This isn't just about MU stock. Memory chip demand is the leading indicator for the entire AI infrastructure cycle — GPU orders follow memory orders by 1–2 quarters. The fact that Micron described AI data center demand as "surging" and guided above consensus means the AI capex cycle remains firmly intact. NVDA, AMD, and the semiconductor complex broadly benefit from this read-through. The initial reaction of +17–18% pre-market is real and institutional.</p>
+        <p><strong>But PCE at 8:30 is the gatekeeper.</strong> A hot print (+0.5% headline / +0.3% core in line with forecasts) extends the rate hike narrative, which is fundamentally bearish for growth multiple stocks despite their strong earnings. The market can hold two things at once — strong earnings AND rising rates — but it's uncomfortable, and VIX doesn't stay below 18 for long in that environment. If PCE comes in hot, fade the pre-market gap in QQQ after the initial reaction settles, not before.</p>
+        <p><strong>The cleanest trade today is MU calls with a tight stop.</strong> Pre-market gap-and-go setups on earnings beats have a specific management rule: if the stock holds above the gap by 10 AM ET, it tends to run. If it reverses and fills the gap, exit. For MU specifically, watch $1,020 as the gap support level. The stop is clear. The catalyst is validated. The sector is in favor. This is the highest-conviction setup on the screen today.</p>
+        <p><strong>GLD puts remain open from yesterday's thesis.</strong> Gold below $4,000 with a surging dollar and 68% probability of a September hike is a macro-driven bearish setup with clear risk management. Stop on puts above $375 (equivalent to gold above $4,050). Target: GLD $345 over the next 2–3 weeks if the dollar continues its run.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Equities Morning Brief · TPTraders Intelligence Hub · 2026-06-25 · NOT FINANCIAL ADVICE<br>
+<a href="https://cbell0920.github.io/tptraders-hub" style="color:#1e3a5f">← TPTraders Hub</a>
+</div>
+
+<script>
+function switchTab(name){
+  const names=['tickers','screening','macro','calendar','analyst'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+</script>
+</body>
+</html>
